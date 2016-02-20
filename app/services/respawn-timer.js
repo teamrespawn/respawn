@@ -19,7 +19,7 @@ export default Ember.Service.extend({
   },
   
   start() {
-    this.set('timeLeft', 3);
+    this.set('timeLeft', 2);
     this.run();
   }
 });
