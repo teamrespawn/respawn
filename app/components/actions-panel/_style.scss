@@ -1,68 +1,38 @@
 .actions-panel {
   position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  .respawn-button {
-    position:absolute;
-    right:0;
-    top:-55px;
-    padding:20px;
-    width:300px;
-    text-align:center;
-    text-align:center;
-    display:inline;
-    &:hover {
-      background:darken(red, 10%);
-      cursor:pointer;
-    }
-  }
-  .initiate-action {
-   float:left;
-   width:71.8%;
-   padding:20px;
-   background:darken(#424242, 12%);
-   .instructions {
-    background:#424242;
-    border:0;
-    font-family:$terminal;
-    color:lime;
-    float:left;
-    width:100%;
-    height:150px;
-    font-size:14px;
-   }
-   button {
-    padding:10px;
-    border-radius:0;
-    width:100%;
-    border:0;
-    background:grey;
-    color:white;
-    font-size:20px;
-   }
-  }
-  .actions-progress {
-    float:right;
-    width:20%;
-    padding:20px;
-    height:193px;
-    color:lime;
-    font-size:12px;
-    background:darken(#424242, 10%);
-    span.base {
-      width:100%;
-      background:grey;
-      height:2px;
-      display:block;
-      margin:6px 0 10px 0;
-      position:relative;
-      span.indicator {
-        height:2px;
+  height:50%;
+  width:75px;
+  z-index:2;
+  left:20px;
+  top:10%;
+  background:darken(#424242, 12%);
+  ul {
+    position:relative;
+    li {
+      height:70px;
+      > ul {
         position:absolute;
-        width:80%;
-        background:lime;
+        left:-9999em;
+        width:300px;
+        background:#fff;
+        height:100%;
+        top:0;
+        li {
+          width:75px;
+          float:left;
+          
+        }
       }
+      &:hover {
+        cursor:pointer;
+        background:darken($grey, 20%);
+      }
+      &:hover > ul {
+        left:75px;
+      }
+    }
+    & > li:first-child {
+      background:darken(#424242, 18%);
     }
   }
 }

@@ -6,4 +6,5 @@ export default Ember.Component.extend({
   latitude: Ember.computed.alias('geolocation.geoObject.coords.latitude'),
   longitude: Ember.computed.alias('geolocation.geoObject.coords.longitude'),
   zoom: 10
+  
 });
