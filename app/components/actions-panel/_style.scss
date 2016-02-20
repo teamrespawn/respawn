@@ -14,7 +14,7 @@
         left:-9999em;
         background:#fff;
         top:0;
-        width:210px;
+        width:300px;
         max-height:300px;
         overflow-y:scroll;
         background:$grey;
@@ -25,9 +25,24 @@
           height:auto;
           .meta {
             padding:10px;
-            float:left;
+            display:block;
             & > span {
             display:block;
+            }
+          }
+          .elements {
+            font-size:12px;
+            &>span {
+              margin-bottom:2px;
+              display:block;
+              padding:2px;
+              margin-left:-2px;
+            }
+            span.benefit {
+              background:darken(green, 10%);
+            }
+            span.cost {
+              background:darken(red, 30%);
             }
           }
           .title {
@@ -35,6 +50,7 @@
             display:block;
             font-weight:900;
           }
+
         }
       }
       &:hover {
