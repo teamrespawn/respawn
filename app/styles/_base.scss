@@ -1,0 +1,4 @@
+html,
+body {
+  @include position(fixed, 0 0 0 0);
+}

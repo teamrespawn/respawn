@@ -1,0 +1,14 @@
+.application {
+  @include position(absolute, 0 0 0 0);
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  padding: 15px;
+  background: gray;
+  
+  .wrapper {
+    @include flex(1);
+    height: 100%;
+    background: darken(gray, 30%);;
+  }
+}
