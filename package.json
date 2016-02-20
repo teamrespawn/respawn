@@ -42,6 +42,7 @@
     "ember-resolver": "^2.0.3",
     "emberfire": "1.6.5",
     "firebase": "2.4.1",
+    "font-awesome": "^4.5.0",
     "loader.js": "^4.0.0"
   }
 }
