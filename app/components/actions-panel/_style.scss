@@ -11,8 +11,16 @@
     width:200px;
   }
   .initiate-action {
-   
+   float:left;
+   width:75%;
+   textarea {
+    background:#424242;
+    border:0;
+    
+   }
   }
   .actions-progress {
+    float:right;
+    width:25%;
   }
 }
