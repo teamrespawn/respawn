@@ -1,0 +1,36 @@
+.progress-panel {
+  float:right;
+  width:20%;
+  padding:20px;
+  color:lime;
+  font-size:12px;
+  position:absolute;
+  z-index:2;
+  bottom:0;
+  width:100%;
+  background:darken(#424242, 10%);
+  h3 {
+    font-size:25px;
+    color:#fff;
+    margin-bottom:10px;
+  }
+  ul {
+    width:25%;
+    float:left;
+    margin-right:20px;
+  }
+  span.base {
+    width:100%;
+    background:grey;
+    height:2px;
+    display:block;
+    margin:6px 0 10px 0;
+    position:relative;
+    span.indicator {
+      height:2px;
+      position:absolute;
+      width:80%;
+      background:lime;
+    }
+  }
+}
