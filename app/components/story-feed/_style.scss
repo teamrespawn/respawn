@@ -1,4 +1,8 @@
 .story-feed {
   background: black;
   color: lime;
+  display: flex;
+  li {
+    flex: 1;
+  }
 }
