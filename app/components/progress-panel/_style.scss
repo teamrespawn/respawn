@@ -11,26 +11,33 @@
   .action-title {
     display:block;
     width:100%;
+    color:$green;
+    font-family:$structure;
+    font-weight:900;
   }
   span.base {
     width:80%;
-    background:grey;
-    height:2px;
+    background:$lt-grey;
+    height:4px;
     display:inline-block;
-    margin:6px 0 10px 0;
+    margin:6px 0 15px 0;
     position:relative;
 
     span.indicator {
-      height:2px;
+      height:4px;
       position:absolute;
       width:80%;
-      background:lime;
+      background:$green;
     }
   }
   span.act-countdown {
     float:right;
     margin-right:3px;
+    font-size:15px;
     width:15%;
-    text-align:center;
+    text-align:left;
+    color:$green;
+    font-family:$structure;
+    font-weight:900;
   }
 }

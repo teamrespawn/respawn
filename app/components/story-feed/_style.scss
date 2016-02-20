@@ -33,6 +33,9 @@
         margin:0;
         &.head {
           text-transform:uppercase;
+          font-family:$structure;
+          font-weight:900;
+          letter-spacing:.1em;
           color:#fff;
         }
         &:before {

@@ -38,10 +38,10 @@
               padding:2px;
               margin-left:-2px;
             }
-            span.benefit {
+            span.data-benefit {
               background:darken(green, 10%);
             }
-            span.cost {
+            span.data-cost {
               background:darken(red, 30%);
             }
           }
@@ -55,7 +55,7 @@
       }
       &:hover {
         cursor:pointer;
-        background:darken($grey, 20%);
+        background:darken($grey, 2%);
       }
       &:hover > ul {
         left:75px;
