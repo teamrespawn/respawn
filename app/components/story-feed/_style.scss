@@ -14,9 +14,32 @@
     margin-bottom:7px;
     font-size:12px;
     line-height:16px;
+    small {
+      font-size:10px;
+      color:#cecece;
+    }
     &:before {
       content:'»';
       margin-right:3px;
+    }
+    ul {
+      padding: 5px;
+      padding-right:0;
+      background:lighten($grey, 10%);
+      float:left;
+      margin-top:3px;
+      width:100%;
+      li {
+        margin:0;
+        &.head {
+          text-transform:uppercase;
+          color:#fff;
+        }
+        &:before {
+          content:'';
+
+        }
+      }
     }
   }
 }

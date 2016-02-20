@@ -1,23 +1,9 @@
 .progress-panel {
-  float:right;
-  width:20%;
-  padding:20px;
-  color:lime;
-  font-size:12px;
-  position:absolute;
-  z-index:2;
-  bottom:0;
-  width:100%;
-  background:darken(#424242, 10%);
-  h3 {
-    font-size:25px;
-    color:#fff;
-    margin-bottom:10px;
-  }
+  width:35%;
+  float:left;
+  float:left;
+  margin-right:20px;
   ul {
-    width:25%;
-    float:left;
-    margin-right:20px;
     max-height:150px;
     overflow-y:scroll;
     padding-right:15px;

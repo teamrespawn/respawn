@@ -14,13 +14,25 @@ body {
    height:100%;
    z-index:1;
   }
-  .respawn-button {
-    
+  .stats {
+    padding:20px;
+    color:lime;
+    font-size:12px;
+    position:absolute;
+    z-index:2;
+    bottom:0;
+    width:100%;
+    background:darken(#424242, 10%);
+    h3 {
+      font-size:25px;
+      color:#fff;
+      font-family:$terminal;
+      margin-bottom:15px;
+      display:block;
+    }
   }
   
-  .story-feed {
-    flex:1;    
-  }
+  
 }
 .pad {
   padding:20px;
