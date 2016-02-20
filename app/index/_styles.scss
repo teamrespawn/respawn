@@ -1,12 +1,18 @@
+.application {
+  padding:0;
+}
 .index {
   position: relative;
   height: 100%;
   
   .spawn {
-    display:flex;
+   width:80%;
+   position:relative;
+   height:100%;
+   z-index:1;
   }
   .respawn-timer {
-    flex:3;
+    
   }
   
   .story-feed {
