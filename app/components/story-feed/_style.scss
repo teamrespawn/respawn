@@ -9,5 +9,14 @@
   top:0;
   li {
     flex: 1;
+    float:left;
+    clear:both;
+    margin-bottom:10px;
+    font-size:12px;
+    line-height:16px;
+    &:before {
+      content:'»';
+      margin-right:3px;
+    }
   }
 }
