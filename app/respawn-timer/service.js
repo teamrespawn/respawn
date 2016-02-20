@@ -7,16 +7,18 @@ export default Ember.Service.extend({
   run() {
     var timer = this;
     
-    if(Ember.computed.not('expired')) {
+    if(!this.get('expired')) {
       Ember.run.later(timer, function() {
         this.decrementProperty('timeLeft');
         this.run();
       }, 1000);
+    } else {
+      Ember.Logger.debug('respawn timer expired');
     }
   },
   
   start() {
-    this.set('timeLeft', 30);
+    this.set('timeLeft', 3);
     this.run();
   }
 });
