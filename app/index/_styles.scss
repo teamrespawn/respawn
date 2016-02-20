@@ -1,11 +1,21 @@
+.application {
+  padding:0;
+}
 .index {
   position: relative;
   height: 100%;
+  
+  .spawn {
+   width:80%;
+   position:relative;
+   height:100%;
+   z-index:1;
+  }
   .respawn-timer {
-    @include position(absolute, null 0 0 null);
+    
   }
   
   .story-feed {
-    @include position(absolute, null null 0 0);
+    flex:1;    
   }
 }
