@@ -10,3 +10,20 @@
     cursor:pointer;
   }
 }
+.search-party {
+  color:black;
+  border:0;
+  width:100%;
+  padding:10px;
+  cursor:pointer;
+  margin-top:10px;
+  color:#fff;
+  background:$grey;
+  position:absolute;
+  bottom:57px;
+  left:0;
+  &:hover {
+    background:darken($grey, 20%);
+
+  }
+}
