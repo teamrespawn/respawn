@@ -26,13 +26,17 @@ body {
     h3 {
       font-size:25px;
       color:#fff;
-      font-family:$terminal;
+      font-family:$structure;
       margin-bottom:15px;
       display:block;
+      text-transform: uppercase;
     }
   }
-  
-  
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family:$structure;
+  font-weight:900;
+  letter-spacing:.1em;
 }
 .pad {
   padding:20px;

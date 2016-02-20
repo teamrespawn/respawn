@@ -9,6 +9,12 @@
       
       header {
         display: inline-block;
+        h1, h2 {
+          color:$white;
+        }
+        h2 {
+          font-weight:100;
+        }
       }
     }
   }
