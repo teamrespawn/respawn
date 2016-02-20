@@ -18,19 +18,29 @@
     width:25%;
     float:left;
     margin-right:20px;
+    max-height:150px;
+    overflow-y:scroll;
+    padding-right:15px;
   }
   span.base {
-    width:100%;
+    width:80%;
     background:grey;
     height:2px;
-    display:block;
+    display:inline-block;
     margin:6px 0 10px 0;
     position:relative;
+
     span.indicator {
       height:2px;
       position:absolute;
       width:80%;
       background:lime;
     }
+  }
+  span.act-countdown {
+    float:right;
+    margin-right:3px;
+    width:15%;
+    text-align:center;
   }
 }
