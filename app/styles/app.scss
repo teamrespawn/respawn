@@ -2,5 +2,8 @@
 @import 'reset';
 @import 'bourbon';
 
+// Component-specific styles
+@import 'components/base';
+
 // Route-specific styles
 @import 'application/styles';
