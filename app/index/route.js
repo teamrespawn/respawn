@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   geolocation: Ember.inject.service(),
+  session: Ember.inject.service(),
   
   beforeModel() {
     this.getCurrentLocation();
@@ -24,6 +25,6 @@ export default Ember.Route.extend({
       lng: lng
     });
     
-    this.controllerFor('index').set('currentEncampment', currentEncampment);
+    this.set('session.currentEncampment', currentEncampment);
   }
 });
