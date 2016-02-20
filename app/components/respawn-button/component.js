@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   // Properties
   classNames: ['respawn-button'],
   respawnTimer: Ember.inject.service(),
+  session: Ember.inject.service(),
   
   // Event handlers
   click() {
@@ -18,6 +19,7 @@ export default Ember.Component.extend({
   actions: {
     respawn: function() {
       Ember.Logger.debug('respawning');
+      this.get('session.currentEncampment').addSurvivor();
       this.get('respawnTimer').start();
     }
   }

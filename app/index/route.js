@@ -2,8 +2,29 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   geolocation: Ember.inject.service(),
+  session: Ember.inject.service(),
   
-  getCurrentLocation: function() {
-    this.get('geolocation').getLocation();
-  }.on('activate')
+  beforeModel() {
+    this.getCurrentLocation();
+  },
+  
+  getCurrentLocation() {
+    var route = this;
+    
+    this.get('geolocation').getLocation().then(function(geoObject) {
+      route.joinOrCreateEncampment(geoObject);
+    });
+  },
+  
+  joinOrCreateEncampment(geoObject) {
+    var lat = geoObject.coords.latitude;
+    var lng = geoObject.coords.longitude;
+    
+    var currentEncampment = this.store.createRecord('encampment', {
+      lat: lat,
+      lng: lng
+    });
+    
+    this.set('session.currentEncampment', currentEncampment);
+  }
 });
