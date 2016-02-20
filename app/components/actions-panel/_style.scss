@@ -13,14 +13,32 @@
       > ul {
         position:absolute;
         left:-9999em;
-        width:300px;
         background:#fff;
-        height:100%;
         top:0;
+        width:210px;
         li {
           width:75px;
           float:left;
-          
+          margin-top:20px;
+          margin-left:20px;
+          background:$grey;
+          &:nth-child(odd) {
+            clear:left;
+          }
+        }
+        button {
+          color:black;
+          border:0;
+          width:100%;
+          padding:10px;
+          cursor:pointer;
+          margin-top:10px;
+          color:#fff;
+          background:$grey;
+          &:hover {
+            background:darken($grey, 20%);
+
+          }
         }
       }
       &:hover {
@@ -34,5 +52,6 @@
     & > li:first-child {
       background:darken(#424242, 18%);
     }
+    
   }
 }
