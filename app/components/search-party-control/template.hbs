@@ -1,0 +1,4 @@
+<button type="button" {{action 'decrementSearchParty'}} disabled={{zeroedOut}}>-</button>
+<span>{{searchPartySize}}</span>
+<button type="button" {{action 'incrementSearchParty'}} disabled={{maxedOut}}>+</button>
+{{search-party-button action='sendSearchParty' searchPartySize=searchPartySize}}

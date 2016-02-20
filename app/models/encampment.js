@@ -9,7 +9,7 @@ export default DS.Model.extend({
   survivors: DS.attr('number', {defaultValue: 0}),
   tents: DS.attr('number', {defaultValue: 0}),
   shacks: DS.attr('number', {defaultValue: 0}),
-  baseCapacity: 1,
+  baseCapacity: 10,
   survivorCapacity: Ember.computed('tents', 'shacks', function() {
     var model = this;
     
@@ -25,8 +25,8 @@ export default DS.Model.extend({
   // Water
   water: DS.attr('number', {defaultValue: 0}),
   waterReservoirs: DS.attr('number', {defaultValue: 0}),
-  baseWaterCapacity: 1000,
-  waterReservoirCapacity: 500,
+  baseWaterCapacity: 10,
+  waterReservoirCapacity: 10,
   waterCapacity: Ember.computed('waterReservoirs', function() {
     return this.get('baseWaterCapacity') + (this.get('waterReservoirs') * this.get('waterReservoirCapacity'));
   }),
@@ -38,8 +38,8 @@ export default DS.Model.extend({
   // Food
   food: DS.attr('number', {defaultValue: 0}),
   coldStorage: DS.attr('number', {defaultValue: 0}),
-  baseFoodCapacity: 500,
-  coldStorageCapacity: 50,
+  baseFoodCapacity: 10,
+  coldStorageCapacity: 10,
   foodCapacity: Ember.computed('coldStorage', function() {
     return this.get('baseFoodCapacity') + (this.get('coldStorage') * this.get('coldStorageCapacity'));
   }),
@@ -50,8 +50,8 @@ export default DS.Model.extend({
   // Cloth
   cloth: DS.attr('number', {defaultValue: 0}),
   warehouses: DS.attr('number', {defaultValue: 0}),
-  baseClothCapacity: 500,
-  warehouseCapacity: 50,
+  baseClothCapacity: 10,
+  warehouseCapacity: 10,
   clothCapacity: Ember.computed('warehouses', function() {
     return this.get('baseClothCapacity') + (this.get('warehouses') * this.get('warehouseCapacity'));
   }),
@@ -62,8 +62,8 @@ export default DS.Model.extend({
   // Fuel
   fuel: DS.attr('number', {defaultValue: 0}),
   fuelTanks: DS.attr('number', {defaultValue: 0}),
-  baseFuelCapacity: 250,
-  fuelTankCapacity: 100,
+  baseFuelCapacity: 10,
+  fuelTankCapacity: 10,
   fuelCapacity: Ember.computed('fuelTanks', function() {
     return this.get('baseFuelCapacity') + (this.get('fuelTanks') * this.get('fuelTankCapacity'));
   }),
@@ -75,8 +75,8 @@ export default DS.Model.extend({
   // Metal
   metal: DS.attr('number', {defaultValue: 0}),
   scrapHeaps: DS.attr('number', {defaultValue: 0}),
-  baseMetalCapacity: 50,
-  scrapHeapCapacity: 25,
+  baseMetalCapacity: 10,
+  scrapHeapCapacity: 10,
   metalCapacity: Ember.computed('scrapHeaps', function() {
     return this.get('baseMetalCapacity') + (this.get('scrapHeaps') * this.get('scrapHeapCapacity'));
   }),
@@ -97,7 +97,17 @@ export default DS.Model.extend({
     
     Ember.run.later(function() {
       ['water', 'food', 'cloth', 'fuel', 'metal'].forEach(function(resource) {
-        var count = numSurvivors * Math.round((Math.random() * 100));
+        var baseCapacity = encampment.get('base' + resource.capitalize() + 'Capacity');
+        
+        // Integer between 0 and the base resource capacity
+        var basePortion = Math.round(Math.random() * baseCapacity);
+        
+        // Multiplier for the number of survivors sent
+        var survivorMultiplier = Math.round(Math.random() * numSurvivors);
+        
+        // Number of survivors sent times the base percentage
+        var count =  survivorMultiplier * basePortion;
+        
         encampment.incrementProperty(resource, count);
       });
     }, 1000);
