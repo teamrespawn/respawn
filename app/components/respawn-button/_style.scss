@@ -1,14 +1,14 @@
 .respawn-button {
-  background: red;
+  background: $green;
   position:absolute;
-  bottom:0;
+  bottom:250px;
   width:100%;
   padding:20px;
   color:white;
   cursor:pointer;
   
   &:hover {
-    background:darken(red, 10%);
+    background:darken($green, 10%);
   }
   
   &.disabled {
