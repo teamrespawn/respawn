@@ -5,9 +5,14 @@
   width:100%;
   padding:20px;
   color:white;
+  cursor:pointer;
+  
   &:hover {
     background:darken(red, 10%);
-    cursor:pointer;
+  }
+  
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 .search-party {
