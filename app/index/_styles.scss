@@ -1,6 +1,9 @@
 body {
   font-family:$terminal;
 }
+a, a:hover, li, li:hover {
+  transition:all .1s ease-in-out;
+}
 .application {
   padding:0;
 }
