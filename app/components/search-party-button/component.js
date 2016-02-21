@@ -15,5 +15,6 @@ export default Ember.Component.extend({
     var partySize = this.get('searchPartySize');
     this.get('messages').newTextMessage(`Sending out a search party of ${partySize} survivors...`);
     this.get('encampment').collectResources(partySize);
+    this.sendAction('reset');
   }
 });
