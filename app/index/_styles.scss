@@ -1,0 +1,135 @@
+header.navigation {
+  $large-screen: em(860) !default;
+  $nav-padding: 1em;
+  $nav-background: $grey;
+  $nav-color: transparentize(white, 0.3);
+  $nav-color-hover: $green;
+  $nav-height: 80px;
+  $nav-nav-button-background-hover: lighten($nav-background, 10%);
+  $nav-search-background: lighten($nav-background, 5);
+  $nav-search-border: 1px solid darken($nav-background, 5);
+  $nav-submenu-padding: 1em;
+  $nav-submenu-width: 12em;
+  $horizontal-bar-mode: $large-screen;
+
+  background-color: none;
+  min-height: $nav-height;
+  width: 100%;
+  z-index: 999;
+  font-family: $structure;
+  text-transform: uppercase;
+
+  .navigation-wrapper {
+    @include clearfix;
+    position: relative;
+    z-index: 9999;
+  }
+
+  .logo {
+    padding-right: 2em;
+
+    .st0 {
+	    transition:all .2s ease-in-out;
+	  }
+	  &:hover {
+	    .st0 {
+	      fill:$green;
+	    }
+	  }
+	  svg {
+	    width: 54px;
+	  }
+  }
+
+  // Mobile view
+
+  .navigation-menu-button {
+    color: $nav-color;
+    display: block;
+    float: right;
+    line-height: $nav-height;
+    margin: 0;
+    padding-right: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 860px) {
+    	display: none;
+    }
+
+    &:focus,
+    &:hover {
+      color: $nav-color-hover;
+    }
+  }
+
+  // Nav menu
+
+  nav {
+    float: none;
+    min-height: $nav-height;
+    z-index: 9999999;
+
+    @media screen and (min-width: 860px) {
+    	float: right;
+    }
+  }
+
+  ul.navigation-menu {
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 9999;
+
+    &.show {
+      display: block;
+    }
+
+    @media screen and (min-width: 860px) {
+    	display: inline;
+    	margin: 0;
+    	padding: 0;
+    }
+  }
+
+  // The nav items
+
+  ul li.nav-link {
+    background: $nav-background;
+    display: block;
+    line-height: $nav-height;
+    overflow: hidden;
+    padding-right: 14px;
+    text-align: right;
+    width: 100%;
+    z-index: 9999;
+
+    @media screen and (min-width: 860px) {
+    	background: transparent;
+    	display: inline;
+    	line-height: $nav-height;
+    	margin: 0;
+    	padding: 0;
+    	width: auto;
+    	text-decoration: none;
+    }
+
+    a {
+      color: $nav-color;
+      display: inline-block;
+      text-decoration: none;
+
+      @media screen and (min-width: 860px) {
+	    	padding-right: 36px;
+	    }
+
+      &:focus,
+      &:hover {
+        color: $nav-color-hover;
+      }
+    }
+  }
+}
