@@ -13,6 +13,11 @@ export default DS.Model.extend({
   
   // Survivors
   survivors: DS.attr('number', {defaultValue: 0}),
+  busySurvivors: 0,
+  allSurvivorsAreIdle: Ember.computed.equal('busySurvivors', 0),
+  availableSurvivors: Ember.computed('survivors', 'busySurvivors', function() {
+    return this.get('survivors') - this.get('busySurvivors');
+  }),
   tents: DS.attr('number', {defaultValue: 0}),
   shacks: DS.attr('number', {defaultValue: 0}),
   baseCapacity: 10,
@@ -27,6 +32,7 @@ export default DS.Model.extend({
     return this.get('survivorCapacity') - this.get('survivors');
   }),
   hasVacancy: Ember.computed.gt('vacancies', 0),
+  
   
   // Resources
   resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
@@ -127,9 +133,13 @@ export default DS.Model.extend({
   
   collectResources(numSurvivors) {
     var encampment = this;
-    var results = Ember.Object.create();
+    var results = [];
+    
+    this.incrementProperty('busySurvivors', numSurvivors);
     
     Ember.run.later(encampment, function() {
+      encampment.decrementProperty('busySurvivors', numSurvivors);
+      
       this.get('resourceTypes').forEach(function(resource) {
         var baseCapacity = encampment.get('base' + resource.capitalize() + 'Capacity');
         var spaceAvailable = encampment.get(resource + 'SpaceAvailable');
@@ -143,12 +153,22 @@ export default DS.Model.extend({
         // Number of survivors sent times the base percentage
         var count =  survivorMultiplier * basePortion;
         
-        if(spaceAvailable > count) {
+        if(spaceAvailable > count && count > 0) {
           encampment.incrementProperty(resource, count);
-          results.set(resource, count);
+          results.pushObject({
+            type: resource,
+            count: count
+          });
         }
       });
-    }, 0);
+      
+      if(Ember.isPresent(results)) {
+        this.get('messages').newCollectionMessage('Your search party has returned. Items collected:', results);
+      } else {
+        this.get('messages').newTextMessage('Your search party has returned. No items were found');
+      }
+    }, 1000);
+    
   },
   
   purchaseBuilding(building) {

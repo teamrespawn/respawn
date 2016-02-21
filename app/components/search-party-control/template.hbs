@@ -2,4 +2,4 @@
 <button class="left" type="button" {{action 'decrementSearchParty'}} disabled={{zeroedOut}}>-</button>
 <span class="count">{{searchPartySize}}</span>
 <button class="right" type="button" {{action 'incrementSearchParty'}} disabled={{maxedOut}}>+</button>
-{{search-party-button action='sendSearchParty' searchPartySize=searchPartySize}}</span>
+{{search-party-button action='sendSearchParty' searchPartySize=searchPartySize reset='resetSearchParty'}}</span>

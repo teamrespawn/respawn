@@ -8,10 +8,13 @@ export default Ember.Component.extend({
   
   session: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
+  messages: Ember.inject.service(),
   
   click(e) {
     e.preventDefault();
-    Ember.Logger.debug('search button clicked');
-    this.get('encampment').collectResources(this.get('searchPartySize'));
+    var partySize = this.get('searchPartySize');
+    this.get('messages').newTextMessage(`Sending out a search party of ${partySize} survivors...`);
+    this.get('encampment').collectResources(partySize);
+    this.sendAction('reset');
   }
 });

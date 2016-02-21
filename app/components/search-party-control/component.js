@@ -14,6 +14,9 @@ export default Ember.Component.extend({
   zeroedOut: Ember.computed.lte('searchPartySize', 0),
   
   actions: {
+    resetSearchParty: function() {
+      this.set('searchPartySize', 0);
+    },
     incrementSearchParty: function() {
       if(this.get('canIncrement')) {
         this.incrementProperty('searchPartySize');
@@ -26,3 +29,5 @@ export default Ember.Component.extend({
     }
   }
 });
+
+

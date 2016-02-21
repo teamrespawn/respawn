@@ -12,6 +12,7 @@
     overflow-y:scroll;
     position:absolute;
     bottom:304px;
+    width:96%;
   }
   li {
     flex: 1;
@@ -28,26 +29,28 @@
       content:'»';
       margin-right:3px;
     }
-    ul {
-      padding: 5px;
-      padding-right:0;
-      background:lighten($grey, 10%);
-      float:left;
-      margin-top:3px;
-      width:100%;
-      li {
-        margin:0;
-        &.head {
-          text-transform:uppercase;
-          font-family:$structure;
-          font-weight:900;
-          letter-spacing:.1em;
-          color:#fff;
-        }
-        &:before {
-          content:'';
+  }
+  ul.collection {
+    padding: 5px;
+    padding-right:0;
+    background:lighten($grey, 10%);
+    float:left;
+    margin-top:3px;
+    width:100%;
+    margin-bottom:10px;
+    border-bottom:1px solid lighten($grey, 25%);
+    li {
+      margin:0;
+      &.head {
+        text-transform:uppercase;
+        font-family:$structure;
+        font-weight:900;
+        letter-spacing:.1em;
+        color:#fff;
+      }
+      &:before {
+        content:'';
 
-        }
       }
     }
   }

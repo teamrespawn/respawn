@@ -9,7 +9,8 @@ export default Ember.Service.extend({
     var message = Text.create({
       text: text
     });
-    this.get('list').unshiftObject(message);
+    this.get('list').pushObject(message);
+    scrollBottom();
   },
   
   newCollectionMessage(text, items) {
@@ -18,5 +19,11 @@ export default Ember.Service.extend({
       items: items
     });
     this.get('list').pushObject(message);
+    scrollBottom();
   }
 });
+
+function scrollBottom() {
+  $(".terminal").animate({ scrollTop: $('.terminal').prop("scrollHeight")}, 20);
+  return false;
+}
