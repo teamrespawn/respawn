@@ -5,10 +5,6 @@ export default DS.Model.extend({
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   
-  // Resources
-  resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
-  resources: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
-  
   // Buildings
   buildingTypes: ['tents', 'waterReservoirs', 'coldStorage', 'sheds', 'fuelTanks', 'scrapHeaps'],
   buildingCounts: Ember.computed.collect('tents', 'waterReservoirs', 'coldStorage', 'sheds', 'fuelTanks', 'scrapHeaps'),
@@ -30,6 +26,10 @@ export default DS.Model.extend({
     return this.get('survivorCapacity') - this.get('survivors');
   }),
   hasVacancy: Ember.computed.gt('vacancies', 0),
+  
+  // Resources
+  resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
+  resources: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
   
   // Water
   water: DS.attr('number', {defaultValue: 0}),
@@ -92,6 +92,28 @@ export default DS.Model.extend({
   metalSpaceAvailable: Ember.computed('metalCapacity', 'metal', function() {
     return this.get('metalCapacity') - this.get('metal');
   }),
+  
+  // Technologies
+  technologyTypes: ['generators', 'vehicles', 'lights', 'radios', 'drones'],
+  technologyCounts: Ember.computed.collect('generators', 'vehicles', 'lights', 'radios', 'drones'),
+  totalTechnologies: Ember.computed.sum('technologyCounts'),
+  
+  generators: DS.attr('number', {defaultValue: 0}),
+  vehicles: DS.attr('number', {defaultValue: 0}),
+  lights: DS.attr('number', {defaultValue: 0}),
+  radios: DS.attr('number', {defaultValue: 0}),
+  drones: DS.attr('number', {defaultValue: 0}),
+  
+  // Weapons
+  weaponTypes: ['bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'],
+  weaponCounts: Ember.computed.collect('bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'),
+  totalWeapons: Ember.computed.sum('weaponCounts'),
+  
+  bearTraps: DS.attr('number', {defaultValue: 0}),
+  chainsaws: DS.attr('number', {defaultValue: 0}),
+  pistols: DS.attr('number', {defaultValue: 0}),
+  shotguns: DS.attr('number', {defaultValue: 0}),
+  rpgs: DS.attr('number', {defaultValue: 0}),
   
   // Methods
   addSurvivor() {
