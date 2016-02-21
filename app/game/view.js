@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+// import {$} from 'ember';
 export default Ember.View.extend({
   classNames: ['game'],
   didInsertElement: function () {
