@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   classNames: ['building-sale'],
   
   owned: Ember.computed('encampment.totalBuildings', function() {
-    Ember.Logger.debug('Total buildings increased:', this.get('encampment.totalBuildings'));
+    this.get('encampment.totalBuildings');
     var buildingType = this.get('building.storeKey');
     return this.get(`encampment.${buildingType}`) || 0;
   }),

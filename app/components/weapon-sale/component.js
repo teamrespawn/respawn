@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   classNames: ['weapon-sale'],
   
   owned: Ember.computed('encampment.totalWeapons', function() {
-    Ember.Logger.debug('Total weapons increased:', this.get('encampment.totalWeapons'));
+    this.get('encampment.totalWeapons');
     var weaponType = this.get('weapon.storeKey');
     return this.get(`encampment.${weaponType}`) || 0;
   }),
