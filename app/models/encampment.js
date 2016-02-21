@@ -127,7 +127,7 @@ export default DS.Model.extend({
   
   collectResources(numSurvivors) {
     var encampment = this;
-    var results = Ember.Object.create();
+    var results = [];
     
     Ember.run.later(encampment, function() {
       this.get('resourceTypes').forEach(function(resource) {
@@ -145,10 +145,18 @@ export default DS.Model.extend({
         
         if(spaceAvailable > count) {
           encampment.incrementProperty(resource, count);
-          results.set(resource, count);
+          results.pushObject({
+            type: resource,
+            count: count
+          });
         }
       });
+      
+      if(Ember.isPresent(results)) {
+        this.get('messages').newCollectionMessage('Items Collected:', results);
+      }
     }, 0);
+    
   },
   
   purchaseBuilding(building) {
