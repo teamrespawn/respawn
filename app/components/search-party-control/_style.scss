@@ -1,6 +1,8 @@
 .search-party {
   font-family: $structure;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 
   > button {
     padding: 20px;
@@ -8,7 +10,6 @@
     font-size: 24px;
     font-weight: 600;
     text-align: center;
-    display: block;
     clear:both;
     border: 0;
 
@@ -33,7 +34,7 @@
     text-align:center;
     width: 100%;
   }
-  span.search-party-action {
+  .search-party-action {
     background-color: $green;
     padding: 20px;
     font-family: $structure;
@@ -41,7 +42,11 @@
     font-weight: 600;
     text-align: center;
     display: block;
+    width: 100%;
     clear:both;
     border: 0;
+  }
+  svg > .st0 {
+    fill: #000000;
   }
 }
