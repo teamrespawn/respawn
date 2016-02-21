@@ -7,7 +7,12 @@
     {{inline-svg "/assets/images/icons/survivor.svg"}}
     <header>
       <h1>Survivors</h1>
-      <h2 class="liquid">{{liquid-bind encampment.survivors}}/{{encampment.survivorCapacity}}</h2>
+      <h2 class="liquid">
+        {{liquid-bind encampment.survivors}}/{{encampment.survivorCapacity}}
+        {{#unless encampment.allSurvivorsAreIdle}}
+          <span class="busy">({{encampment.busySurvivors}} Busy)</span>
+        {{/unless}}
+      </h2>
     </header>
   </li>
   
