@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   
   click(e) {
     e.preventDefault();
+    Ember.Logger.debug('search button clicked');
     this.get('encampment').collectResources(this.get('searchPartySize'));
   }
 });
