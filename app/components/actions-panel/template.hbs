@@ -10,31 +10,9 @@
   <li>
     {{inline-svg "assets/images/icons/tech"}}
     <ul>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
-            </span>
-            <a href="#">Build</a>
-          </span>
-        </span>
-      </li>
-
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      {{#each technologies.types as |tech|}}
+        {{tech-sale tech=tech}}
+      {{/each}}
     </ul>
   </li>
   <li class="attack">
