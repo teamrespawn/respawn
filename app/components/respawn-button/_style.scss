@@ -10,6 +10,7 @@
   font-weight: 700;
   text-transform: uppercase;
   font-size: 18px;
+  display: block;
   
   &:hover {
     background:darken($green, 10%);
@@ -17,6 +18,16 @@
   
   &.disabled {
     cursor: not-allowed;
+  }
+  > .timer {
+    position: relative;
+
+    span.time-counter {
+      color: #242424;
+      position: absolute;
+      top: -14px;
+      right: 30px;
+    }
   }
 }
 .search-party {
