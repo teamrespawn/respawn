@@ -4,7 +4,6 @@ export default function(){
   //   this.use('fade')
   // );
   this.transition(
-    this.use('toUp'),
-    this.debug()
+    this.use('toUp')
   );
 }

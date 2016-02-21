@@ -3,14 +3,12 @@
     {{#if message.isText}}
       <li class="single">{{message.text}}</li>
     {{else}}
-      <li class="head">{{message.text}}</li>
-      <li class="collection">
-        <ul>
-          {{#each message.items as |item|}}
-            <li>{{item.count}} {{item.type}}</li>
-          {{/each}}
-        </ul>
-      </li>
+      <ul class="collection">
+        <li class="head">{{message.text}}</li>
+        {{#each message.items as |item|}}
+          <li>{{item.count}} {{item.type}}</li>
+        {{/each}}
+      </ul>
     {{/if}}
   {{/each}}
 </ul>
