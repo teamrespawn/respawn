@@ -25,14 +25,5 @@ export default Ember.Route.extend({
     });
     
     this.set('session.currentEncampment', currentEncampment);
-  },
-  
-  actions: {
-    loading: function() {
-      console.log('loading index');
-    },
-    didTransition: function() {
-      console.log('index loaded');
-    }
   }
 });
