@@ -1,0 +1,16 @@
+.search-party {
+  font-family: $structure;
+  
+  > button {
+    padding: 20px;
+    max-width: 56px;
+    font-family: $structure;
+    background-color: $lt-grey-green;
+    text-align: center;
+  }
+  > span {
+    display:block;
+    background-color: white;
+    text-align:center;
+  }
+}

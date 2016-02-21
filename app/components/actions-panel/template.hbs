@@ -1,5 +1,6 @@
 <ul>
   <li>
+  {{inline-svg "assets/images/icons/tech"}}
     <ul>
       {{#each buildings.types as |building|}}
         <li>
@@ -10,7 +11,7 @@
                 <span class="data-owned">2</span>
               </span>
               <span class="benefit">
-                Benefit:
+                Gain:
                 <span class="data-benefit">+2 Survivors</span>
               </span>
               <span class="cost">
@@ -19,11 +20,13 @@
               </span>
             </span>
           </span>
+          <a class="build" href="#">Build</a>
         </li>
       {{/each}}
     </ul>
   </li>
   <li>
+    {{inline-svg "assets/images/icons/build"}}
     <ul>
       <li>
         <span class="meta">
@@ -33,13 +36,14 @@
               <span class="data-owned">2</span>
             </span>
             <span class="benefit">
-              Benefit:
+              Gain:
               <span class="data-benefit">+2 Survivors</span>
             </span>
             <span class="cost">
               Cost:
               <span class="data-cost">-2 Cloth</span>
             </span>
+            <a href="#">Build</a>
           </span>
         </span>
       </li>
@@ -51,7 +55,8 @@
       <li></li>
     </ul>
   </li>
-  <li>
+  <li class="attack">
+    {{inline-svg "assets/images/icons/attack"}}
     <ul>
       <li></li>
       <li></li>

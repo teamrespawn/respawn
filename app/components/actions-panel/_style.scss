@@ -5,16 +5,21 @@
   left:20px;
   top:10%;
   background:darken(#424242, 12%);
+  svg {
+    max-width:35px;
+    padding:13px 0 15px;
+    margin-top:4px;
+  }
   ul {
     position:relative;
     li {
-      height:70px;
+      text-align:center;
       > ul {
         position:absolute;
         left:-9999em;
         background:#fff;
         top:0;
-        width:300px;
+        width:450px;
         max-height:300px;
         overflow-y:scroll;
         background:$grey;
@@ -26,31 +31,56 @@
           .meta {
             padding:10px;
             display:block;
+            float:left;
             & > span {
             display:block;
             }
           }
           .elements {
-            font-size:12px;
+            font-size:14px;
+            float:left;
+
             &>span {
-              margin-bottom:2px;
+              margin-bottom:3px;
               display:block;
-              padding:2px;
-              margin-left:-2px;
+              text-transform:uppercase;
+              text-align:left;
             }
             span.data-benefit {
-              background:darken(green, 10%);
+              color:$green;
             }
             span.data-cost {
-              background:darken(red, 30%);
+              color:$red;
             }
           }
           .title {
             font-size:16px;
             display:block;
             font-weight:900;
+            float:left;
+            padding:20px 30px;
           }
-
+          a.build {
+            position:absolute;
+            left:-99999em;
+            float:right;
+            padding:30px 35px;
+            background:$red;
+            color:$white;
+            text-decoration:none;
+            font-family:$structure;
+            text-transform: uppercase;
+            font-weight:900;
+            &:hover {
+              background:darken($red, 5%);
+            }
+          }
+          &:hover {
+            a.build {
+              position:static;
+              left:auto;
+            }
+          }
         }
       }
       &:hover {
