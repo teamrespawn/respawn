@@ -7,6 +7,18 @@ a, a:hover, li, li:hover {
 .application {
   padding:0;
 }
+.logo {
+  padding:6px 10px 10px 6px;
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:2;
+
+  background:darken(#424242, 12%);
+  svg {
+    width: 59px;
+  }
+}
 .index {
   position: relative;
   height: 100%;

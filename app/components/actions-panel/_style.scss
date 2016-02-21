@@ -3,7 +3,7 @@
   width:75px;
   z-index:2;
   left:20px;
-  top:10%;
+  top:110px;
   background:darken(#424242, 12%);
   svg {
     max-width:35px;
@@ -68,7 +68,7 @@
             left:-99999em;
             float:right;
             padding:0 35px;
-            background:$red;
+            background:$green;
             color:$white;
             text-decoration:none;
             font-family:$structure;
@@ -85,7 +85,7 @@
               transform:translateY(-50%);
             }
             &:hover {
-              background:darken($red, 5%);
+              background:darken($green, 5%);
             }
           }
           &:hover {
