@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   searchPartySize: 0,
   
   tagName: 'button',
-  classNames: ['search-party'],
+  classNames: ['search-party-action'],
   
   session: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
