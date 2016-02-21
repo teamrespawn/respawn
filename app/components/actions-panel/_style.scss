@@ -19,7 +19,7 @@
         left:-9999em;
         background:#fff;
         top:0;
-        width:400px;
+        width:450px;
         max-height:300px;
         overflow-y:scroll;
         background:$grey;
@@ -31,6 +31,7 @@
           .meta {
             padding:10px;
             display:block;
+            float:left;
             & > span {
             display:block;
             }
@@ -49,7 +50,7 @@
               color:$green;
             }
             span.data-cost {
-              color:darken(red, 30%);
+              color:$red;
             }
           }
           .title {
@@ -58,6 +59,27 @@
             font-weight:900;
             float:left;
             padding:20px 30px;
+          }
+          a.build {
+            position:absolute;
+            left:-99999em;
+            float:right;
+            padding:30px 35px;
+            background:$red;
+            color:$white;
+            text-decoration:none;
+            font-family:$structure;
+            text-transform: uppercase;
+            font-weight:900;
+            &:hover {
+              background:darken($red, 5%);
+            }
+          }
+          &:hover {
+            a.build {
+              position:static;
+              left:auto;
+            }
           }
         }
       }
