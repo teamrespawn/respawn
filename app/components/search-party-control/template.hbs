@@ -1,5 +1,5 @@
 <span class="scouting">{{inline-svg "/assets/images/icons/scouting.svg"}} Scouting Party</span>
-<button type="button" {{action 'decrementSearchParty'}} disabled={{zeroedOut}}>-</button>
+<button type="button left" {{action 'decrementSearchParty'}} disabled={{zeroedOut}}>-</button>
 <span>{{searchPartySize}}</span>
-<button type="button" {{action 'incrementSearchParty'}} disabled={{maxedOut}}>+</button>
+<button type="button right" {{action 'incrementSearchParty'}} disabled={{maxedOut}}>+</button>
 {{search-party-button action='sendSearchParty' searchPartySize=searchPartySize}}
