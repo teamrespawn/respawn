@@ -1,87 +1,16 @@
 <h3>{{inline-svg "assets/images/icons/activity_feed"}} Activities</h3>
 <ul>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  <li>
-    <span class="action-title">
-      Action One
-    </span>
-    <span class="base">
-      <span class="indicator"></span>
-    </span>
-    <span class="act-countdown">12s</span>
-  </li>
-  
+  {{#each activities.list as |activity|}}
+    <li>
+      <span class="action-title">
+        {{activity.title}}
+      </span>
+      <span class="base">
+        <span class="indicator"></span>
+      </span>
+      <span class="act-countdown">{{activity.timeLeft}}</span>
+    </li>
+  {{/each}}
 </ul>
 
   

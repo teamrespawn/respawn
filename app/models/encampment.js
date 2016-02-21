@@ -2,7 +2,11 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
+  // Services
   messages: Ember.inject.service(),
+  activities: Ember.inject.service(),
+  
+  // Location
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   
@@ -134,8 +138,10 @@ export default DS.Model.extend({
   collectResources(numSurvivors) {
     var encampment = this;
     var results = [];
+    var time = Math.round(Math.random() * 10);
     
     this.incrementProperty('busySurvivors', numSurvivors);
+    this.get('activities').addActivity('Search party', time);
     
     Ember.run.later(encampment, function() {
       encampment.decrementProperty('busySurvivors', numSurvivors);
@@ -167,7 +173,7 @@ export default DS.Model.extend({
       } else {
         this.get('messages').newTextMessage('Your search party has returned. No items were found');
       }
-    }, 1000);
+    }, (time * 1000));
     
   },
   
