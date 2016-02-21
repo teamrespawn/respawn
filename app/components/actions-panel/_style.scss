@@ -10,11 +10,11 @@
     padding:13px 0 15px;
     margin-top:4px;
   }
-  ul {
+  >ul {
     position:relative;
-    li {
+    >li {
       text-align:center;
-      > ul {
+      >ul {
         position:absolute;
         left:-9999em;
         background:#fff;
@@ -23,7 +23,7 @@
         max-height:300px;
         overflow-y:scroll;
         background:$grey;
-        li {
+        >li {
           float:left;
           width:100%;
           color:#fff;
@@ -33,23 +33,34 @@
             padding:10px;
             display:block;
             float:left;
-            & > span {
-            display:block;
+            & > ul {
+            display:inline;
             }
           }
           .elements {
             font-size:14px;
             float:left;
-            &>span {
+            text-align:left;
+            width:175px;
+            &>ul {
               margin-bottom:3px;
               display:block;
               text-transform:uppercase;
               text-align:left;
+              width:110px;
+              float:left;
             }
-            span.data-benefit {
+            span.head {
+              clear:both;
+              float:left;
+              width:60px;
+              text-align:right;
+              margin-right:4px;
+            }
+            li.data-benefit {
               color:$green;
             }
-            span.data-cost {
+            li.data-cost {
               color:$red;
             }
           }
@@ -89,6 +100,7 @@
             }
           }
           &:hover {
+            background:darken($grey, 5%);
             a.build {
               left:auto;
               right:0;
@@ -102,7 +114,7 @@
       }
       &:hover {
         cursor:pointer;
-        background:darken($grey, 2%);
+        background:darken($grey, 5%);
         .st0 {
           fill:$green;
         }
