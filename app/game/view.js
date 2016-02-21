@@ -10,13 +10,6 @@ export default Ember.View.extend({
   }
   
 });
-function mapReplace($gifvid, $src) {
-  if($gifvid === "gif") {
-
-  } else {
-
-  }
-}
 function storyResize() {
   var wHeight = $(window).height();
   var spBtnHeight = $('.respawn-button').height();
