@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
+  messages: Ember.inject.service(),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   
@@ -119,7 +120,8 @@ export default DS.Model.extend({
   // Methods
   addSurvivor() {
     if(this.get('hasVacancy')) {
-      this.incrementProperty('survivors');
+      var count = this.incrementProperty('survivors');
+      this.get('messages').newTextMessage(`You now have ${count} survivors`);
     }
   },
   
@@ -146,7 +148,7 @@ export default DS.Model.extend({
           results.set(resource, count);
         }
       });
-    }, 1000);
+    }, 0);
   },
   
   purchaseBuilding(building) {
@@ -156,7 +158,8 @@ export default DS.Model.extend({
         var price = building.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      this.incrementProperty(building.storeKey);
+      var count = this.incrementProperty(building.storeKey);
+      this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
     }
   },
   
@@ -167,7 +170,8 @@ export default DS.Model.extend({
         var price = tech.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      this.incrementProperty(tech.storeKey);
+      var count = this.incrementProperty(tech.storeKey);
+      this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
     }
   },
   
@@ -178,7 +182,8 @@ export default DS.Model.extend({
         var price = weapon.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      this.incrementProperty(weapon.storeKey);
+      var count = this.incrementProperty(weapon.storeKey);
+      this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
     }
   },
   

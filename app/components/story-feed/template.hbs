@@ -1,18 +1,16 @@
 <div class="pad">
-  <li>Message 1</li>
-  <li>Message 2</li>
-  <li>Longer message to test out spacing. Here goes nothing.</li>
-  <li>Your search party has returned!<br>
-  
-  <ul class="collection">
-    <li class="head">Items Collected:</li>
-    <li>4 Food</li>
-    <li>3 Water</li>
-    <li>6 Clothes</li>
-  </ul>
-  </li>
-
-  
+  {{#each messages.list as |message|}}
+    {{#if message.isText}}
+      <li>{{message.text}}</li>
+    {{else}}
+      <ul class="collection">
+        <li class="head">Items Collected:</li>
+        <li>4 Food</li>
+        <li>3 Water</li>
+        <li>6 Clothes</li>
+      </ul>
+    {{/if}}
+  {{/each}}
 </div>
 {{search-party-control}}
 <div class="respawn">
