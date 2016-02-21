@@ -1,16 +1,26 @@
 .search-party {
   font-family: $structure;
-  
+
   > button {
     padding: 20px;
     max-width: 56px;
     font-family: $structure;
+    font-size: 24px;
+    font-weight: 600;
     background-color: $lt-grey-green;
     text-align: center;
+
+    .right {
+      float: right;
+    }
+    .left {
+      float: left;
+    }
   }
   > span {
     display:block;
     background-color: white;
     text-align:center;
+    width: 100%;
   }
 }
