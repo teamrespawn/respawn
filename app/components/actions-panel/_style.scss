@@ -19,7 +19,7 @@
         left:-9999em;
         background:#fff;
         top:0;
-        width:450px;
+        width:550px;
         max-height:300px;
         overflow-y:scroll;
         background:$grey;
@@ -28,6 +28,7 @@
           width:100%;
           color:#fff;
           height:auto;
+          position:relative;
           .meta {
             padding:10px;
             display:block;
@@ -39,7 +40,6 @@
           .elements {
             font-size:14px;
             float:left;
-
             &>span {
               margin-bottom:3px;
               display:block;
@@ -59,26 +59,40 @@
             font-weight:900;
             float:left;
             padding:20px 30px;
+            width:125px;
+            text-transform: uppercase;
+            text-align:left;
           }
           a.build {
             position:absolute;
             left:-99999em;
             float:right;
-            padding:30px 35px;
+            padding:0 35px;
             background:$red;
             color:$white;
             text-decoration:none;
             font-family:$structure;
             text-transform: uppercase;
             font-weight:900;
+            top:0;
+            bottom:0;
+            span {
+              position:absolute;
+              top:50%;
+              margin:0 auto;
+              left:0;
+              right:0;
+              transform:translateY(-50%);
+            }
             &:hover {
               background:darken($red, 5%);
             }
           }
           &:hover {
             a.build {
-              position:static;
               left:auto;
+              right:0;
+              width:45px;
             }
           }
         }
