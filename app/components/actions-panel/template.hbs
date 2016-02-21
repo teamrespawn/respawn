@@ -1,6 +1,6 @@
 <ul>
   <li>
-  {{inline-svg "assets/images/icons/tech"}}
+    {{inline-svg "assets/images/icons/build"}}
     <ul>
       {{#each buildings.types as |building|}}
         <li>
@@ -8,16 +8,20 @@
             <span class="title">{{building.name}}</span>
             <span class="elements">
               <span class="owned">Owned 
-                <span class="data-owned">2</span>
+                <span class="data-owned">{{building.count}}</span>
               </span>
-              <span class="benefit">
+              <ul class="rewards">
                 Gain:
-                <span class="data-benefit">+2 Survivors</span>
-              </span>
-              <span class="cost">
+                {{#each-in building.return as |reward amount|}}
+                  <li class="data-benefit">+{{amount}} Survivors</li>
+                {{/each-in}}
+              </ul>
+              <ul class="costs">
                 Cost:
-                <span class="data-cost">-2 Cloth</span>
-              </span>
+                {{#each-in building.price as |resource cost|}}
+                  <li class="data-cost">-{{cost}} {{resource}}</li>
+                {{/each-in}}
+              </ul>
             </span>
           </span>
           <a class="build" href="#">
@@ -28,7 +32,7 @@
     </ul>
   </li>
   <li>
-    {{inline-svg "assets/images/icons/build"}}
+    {{inline-svg "assets/images/icons/tech"}}
     <ul>
       <li>
         <span class="meta">

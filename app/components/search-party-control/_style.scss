@@ -1,15 +1,25 @@
 .search-party {
   font-family: $structure;
+  position: relative;
 
   > button {
     padding: 20px;
-    max-width: 56px;
     font-family: $structure;
     font-size: 24px;
     font-weight: 600;
-    background-color: $lt-grey-green;
     text-align: center;
+    display: block;
+    clear:both;
+    border: 0;
 
+    &:hover {
+      background-color: darken($green, 10%);
+    }
+    
+    .right, .left {
+      max-width: 56px;
+      background-color: $lt-grey-green;
+    }
     .right {
       float: right;
     }
@@ -22,5 +32,16 @@
     background-color: white;
     text-align:center;
     width: 100%;
+  }
+  span.search-party-action {
+    background-color: $green;
+    padding: 20px;
+    font-family: $structure;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    clear:both;
+    border: 0;
   }
 }
