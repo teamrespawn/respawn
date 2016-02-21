@@ -97,9 +97,15 @@
           }
         }
       }
+      .st0 {
+        transition:all .2s ease-in-out;
+      }
       &:hover {
         cursor:pointer;
         background:darken($grey, 2%);
+        .st0 {
+          fill:$green;
+        }
       }
       &:hover > ul {
         left:75px;
