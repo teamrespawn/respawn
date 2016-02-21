@@ -8,7 +8,7 @@
     <span class="head">Gain:</span>
     <ul class="rewards">
       {{#each-in building.return as |reward amount|}}
-        <li class="data-benefit">+{{amount}} Survivors</li>
+        <li class="data-benefit">+{{amount}} {{reward}}</li>
       {{/each-in}}
     </ul>
     <span class="head">Cost:</span>

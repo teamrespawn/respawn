@@ -10,6 +10,9 @@ export default Ember.Service.extend({
     storeKey: 'generators',
     price: {
       fuel: 5
+    },
+    benefit: {
+      something: 1
     }
   }),
   
@@ -18,6 +21,9 @@ export default Ember.Service.extend({
     storeKey: 'vehicles',
     price: {
       fuel: 5
+    },
+    benefit: {
+      something: 1
     }
   }),
   
@@ -26,6 +32,9 @@ export default Ember.Service.extend({
     storeKey: 'lights',
     price: {
       metal: 5
+    },
+    benefit: {
+      something: 1
     }
   }),
   
@@ -34,6 +43,9 @@ export default Ember.Service.extend({
     storeKey: 'radios',
     price: {
       metal: 5
+    },
+    benefit: {
+      something: 1
     }
   }),
   
@@ -42,6 +54,9 @@ export default Ember.Service.extend({
     storeKey: 'drones',
     price: {
       metal: 5
+    },
+    benefit: {
+      something: 1
     }
   })
 });

@@ -1,17 +1,24 @@
 <span class="meta">
   <span class="title">{{tech.name}}</span>
   <span class="elements">
-    <span class="owned">Owned 
-      <span class="data-owned">2</span>
-    </span>
-    <span class="benefit">
-      Gain:
-      <span class="data-benefit">+2 Survivors</span>
-    </span>
-    <span class="cost">
-      Cost:
-      <span class="data-cost">-2 Cloth</span>
-    </span>
-    <a href="#">Build</a>
+    <span class="head">Owned:</span>
+    <ul class="owned">
+      <li>{{owned}}</li>
+    </ul>
+    <span class="head">Gain:</span>
+    <ul class="rewards">
+      {{#each-in tech.benefit as |type amount|}}
+        <li class="data-benefit">+{{amount}} {{type}}</li>
+      {{/each-in}}
+    </ul>
+    <span class="head">Cost:</span>
+    <ul class="costs">
+      {{#each-in tech.price as |resource cost|}}
+        <li class="data-cost">-{{cost}} {{resource}}</li>
+      {{/each-in}}
+    </ul>
   </span>
 </span>
+<a class="build" href="#" {{action "purchase" tech}}>
+  <span>Build</span>
+</a>

@@ -2,12 +2,9 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
+  messages: Ember.inject.service(),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
-  
-  // Resources
-  resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
-  resources: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
   
   // Buildings
   buildingTypes: ['tents', 'waterReservoirs', 'coldStorage', 'sheds', 'fuelTanks', 'scrapHeaps'],
@@ -30,6 +27,11 @@ export default DS.Model.extend({
     return this.get('survivorCapacity') - this.get('survivors');
   }),
   hasVacancy: Ember.computed.gt('vacancies', 0),
+  
+  // Resources
+  resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
+  resourceCounts: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
+  totalResources: Ember.computed.sum('resourceCounts'),
   
   // Water
   water: DS.attr('number', {defaultValue: 0}),
@@ -93,10 +95,33 @@ export default DS.Model.extend({
     return this.get('metalCapacity') - this.get('metal');
   }),
   
+  // Technologies
+  technologyTypes: ['generators', 'vehicles', 'lights', 'radios', 'drones'],
+  technologyCounts: Ember.computed.collect('generators', 'vehicles', 'lights', 'radios', 'drones'),
+  totalTechnologies: Ember.computed.sum('technologyCounts'),
+  
+  generators: DS.attr('number', {defaultValue: 0}),
+  vehicles: DS.attr('number', {defaultValue: 0}),
+  lights: DS.attr('number', {defaultValue: 0}),
+  radios: DS.attr('number', {defaultValue: 0}),
+  drones: DS.attr('number', {defaultValue: 0}),
+  
+  // Weapons
+  weaponTypes: ['bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'],
+  weaponCounts: Ember.computed.collect('bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'),
+  totalWeapons: Ember.computed.sum('weaponCounts'),
+  
+  bearTraps: DS.attr('number', {defaultValue: 0}),
+  chainsaws: DS.attr('number', {defaultValue: 0}),
+  pistols: DS.attr('number', {defaultValue: 0}),
+  shotguns: DS.attr('number', {defaultValue: 0}),
+  rpgs: DS.attr('number', {defaultValue: 0}),
+  
   // Methods
   addSurvivor() {
     if(this.get('hasVacancy')) {
-      this.incrementProperty('survivors');
+      var count = this.incrementProperty('survivors');
+      this.get('messages').newTextMessage(`You now have ${count} survivors`);
     }
   },
   
@@ -123,7 +148,7 @@ export default DS.Model.extend({
           results.set(resource, count);
         }
       });
-    }, 1000);
+    }, 0);
   },
   
   purchaseBuilding(building) {
@@ -133,15 +158,40 @@ export default DS.Model.extend({
         var price = building.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      this.incrementProperty(building.storeKey);
+      var count = this.incrementProperty(building.storeKey);
+      this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
     }
   },
   
-  canAfford(building) {
+  purchaseTech(tech) {
+    var encampment = this;
+    if(this.canAfford(tech)) {
+      this.get('resourceTypes').forEach(function(resource) {
+        var price = tech.price[resource] || 0;
+        this.decrementProperty(resource, price);
+      }, encampment);
+      var count = this.incrementProperty(tech.storeKey);
+      this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
+    }
+  },
+  
+  purchaseWeapon(weapon) {
+    var encampment = this;
+    if(this.canAfford(weapon)) {
+      this.get('resourceTypes').forEach(function(resource) {
+        var price = weapon.price[resource] || 0;
+        this.decrementProperty(resource, price);
+      }, encampment);
+      var count = this.incrementProperty(weapon.storeKey);
+      this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
+    }
+  },
+  
+  canAfford(item) {
     var afford = true;
     
     this.get('resourceTypes').forEach(function(resource) {
-      var price = building.price[resource] || 0;
+      var price = item.price[resource] || 0;
       if(this.get(resource) < price) {
         afford = false;
       }

@@ -4,8 +4,11 @@ export default Ember.View.extend({
   classNames: ['index'],
   didInsertElement: function () {
     storyResize();
-
-  }
+    $(window).resize(function () {
+      storyResize();
+    });
+  },
+  classNames: ['game']
 });
 
 function storyResize() {
