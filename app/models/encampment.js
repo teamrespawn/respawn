@@ -94,10 +94,12 @@ export default DS.Model.extend({
   
   collectResources(numSurvivors) {
     var encampment = this;
+    var results = Ember.Object.create();
     
-    Ember.run.later(function() {
+    Ember.run.later(encampment, function() {
       ['water', 'food', 'cloth', 'fuel', 'metal'].forEach(function(resource) {
         var baseCapacity = encampment.get('base' + resource.capitalize() + 'Capacity');
+        var spaceAvailable = encampment.get(resource + 'SpaceAvailable');
         
         // Integer between 0 and the base resource capacity
         var basePortion = Math.round(Math.random() * baseCapacity);
@@ -108,8 +110,12 @@ export default DS.Model.extend({
         // Number of survivors sent times the base percentage
         var count =  survivorMultiplier * basePortion;
         
-        encampment.incrementProperty(resource, count);
+        if(spaceAvailable > count) {
+          encampment.incrementProperty(resource, count);
+          results.set(resource, count);
+        }
       });
+      
     }, 1000);
   }
 });
