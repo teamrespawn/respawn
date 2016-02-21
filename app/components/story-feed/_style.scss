@@ -7,6 +7,12 @@
   right:0;
   z-index:2;
   top:0;
+  .terminal {
+    max-height:400px;
+    overflow-y:scroll;
+    position:absolute;
+    bottom:304px;
+  }
   li {
     flex: 1;
     float:left;

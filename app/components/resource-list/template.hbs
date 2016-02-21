@@ -2,13 +2,15 @@
   {{inline-svg "assets/images/icons/resources"}} Resources
 </h3>
 <ul>
-  <li>
+  
+  <li class="survivors">
     {{inline-svg "/assets/images/icons/survivor.svg"}}
     <header>
       <h1>Survivors</h1>
-      <h2>{{encampment.survivors}}/{{encampment.survivorCapacity}}</h2>
+      <h2 class="liquid">{{liquid-bind encampment.survivors}}/{{encampment.survivorCapacity}}</h2>
     </header>
   </li>
+  
   <li>
     {{inline-svg "/assets/images/icons/food_resource.svg"}}
     <header>
