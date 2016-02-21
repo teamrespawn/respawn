@@ -143,7 +143,7 @@ export default DS.Model.extend({
         // Number of survivors sent times the base percentage
         var count =  survivorMultiplier * basePortion;
         
-        if(spaceAvailable > count) {
+        if(spaceAvailable > count && count > 0) {
           encampment.incrementProperty(resource, count);
           results.pushObject({
             type: resource,
@@ -153,7 +153,9 @@ export default DS.Model.extend({
       });
       
       if(Ember.isPresent(results)) {
-        this.get('messages').newCollectionMessage('Items Collected:', results);
+        this.get('messages').newCollectionMessage('Your search party has returned. Items Collected:', results);
+      } else {
+        this.get('messages').newTextMessage('Your search party has returned. No items were found');
       }
     }, 0);
     
