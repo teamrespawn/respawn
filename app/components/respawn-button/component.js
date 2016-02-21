@@ -17,21 +17,19 @@ export default Ember.Component.extend({
   click() {
     if(this.get('canRespawn')) {
       this.send('respawn');
-
     } else {
       Ember.Logger.debug('timer already running');
     }
-
   },
-  
+
   // Actions
   actions: {
     respawn: function() {
       Ember.Logger.debug('respawning');
       this.get('encampment').addSurvivor();
-      $('.resource-list li').addClass('bounce');
+      $('li.survivors').addClass('bounce');
       setTimeout(function() {
-        $('.resource-list li').removeClass('bounce');
+        $('li.survivors').removeClass('bounce');
       }, 2000);
       this.get('respawnTimer').start();
     }
