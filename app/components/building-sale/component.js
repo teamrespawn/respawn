@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   encampment: Ember.computed.alias('session.currentEncampment'),
+  
   tagName: 'li',
   classNames: ['building-sale'],
   

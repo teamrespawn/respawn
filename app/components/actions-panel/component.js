@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   weapons: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   
-  resourceObserver: Ember.observer('encampment.resources.@each', function() {
+  resourceObserver: Ember.observer('encampment.totalResources', function() {
     Ember.Logger.debug('resource values changed');
   })
 });

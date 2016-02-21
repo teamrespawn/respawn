@@ -6,26 +6,61 @@ export default Ember.Service.extend({
   
   bearTrap: Weapon.create({
     name: 'bear trap',
-    storeKey: 'bearTraps'
+    storeKey: 'bearTraps',
+    power: {
+      attack: 1,
+      defense: 1
+    },
+    price: {
+      metal: 1
+    }
   }),
   
   chainsaw: Weapon.create({
     name: 'chainsaw',
-    storeKey: 'chainsaws'
+    storeKey: 'chainsaws',
+    power: {
+      attack: 1,
+      defense: 1
+    },
+    price: {
+      metal: 1
+    }
   }),
   
   pistol: Weapon.create({
     name: 'pistol',
-    storeKey: 'pistols'
+    storeKey: 'pistols',
+    power: {
+      attack: 1,
+      defense: 1
+    },
+    price: {
+      metal: 1
+    }
   }),
   
   shotgun: Weapon.create({
     name: 'shotgun',
-    storeKey: 'shotguns'
+    storeKey: 'shotguns',
+    power: {
+      attack: 1,
+      defense: 1
+    },
+    price: {
+      metal: 1
+    }
   }),
   
   rpg: Weapon.create({
     name: 'rpg',
-    storeKey: 'rpgs'
+    storeKey: 'rpgs',
+    power: {
+      attack: 1,
+      defense: 1
+    },
+    price: {
+      metal: 1
+    }
   })
 });
