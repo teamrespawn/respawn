@@ -1,7 +1,7 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
     <div class="logo">
-    	{{inline-svg "assets/images/icons/respawn_r_logo"}}
+    	{{inline-svg "assets/images/icons/respawn_r_logo" link "#home"}}
   	</div>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
@@ -13,6 +13,15 @@
     </nav>
   </div>
 </header>
+<section id="home" class="hero">
+	<div class="logo-main">
+    	{{inline-svg "assets/images/icons/respawn_word_logo" }}
+  	</div>
+</section>
+<section id="how" class="how-to">
+	<h1>How to Play</h1>
+	<p></p>
+</section>
 <section id="play" class="play-game">
-	<span>{{link-to 'Enter game' 'game'}}</span>
+	<span>{{link-to 'Launch Game' 'game'}}</span>
 </section>

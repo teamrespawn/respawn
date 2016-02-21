@@ -1,7 +1,7 @@
 header.navigation {
   $large-screen: em(860) !default;
   $nav-padding: 1em;
-  $nav-background: $grey;
+  $nav-background: #081E1E;
   $nav-color: transparentize(white, 0.3);
   $nav-color-hover: $green;
   $nav-height: 80px;
@@ -18,6 +18,8 @@ header.navigation {
   z-index: 999;
   font-family: $structure;
   text-transform: uppercase;
+  position: fixed;
+  top:0;
 
   .navigation-wrapper {
     @include clearfix;
@@ -98,11 +100,11 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
-    background: $nav-background;
+    background: transparentize($nav-background, 0.2);
     display: block;
     line-height: $nav-height;
     overflow: hidden;
-    padding-right: 14px;
+    padding-right: 15px;
     text-align: right;
     width: 100%;
     z-index: 9999;
@@ -112,15 +114,17 @@ header.navigation {
     	display: inline;
     	line-height: $nav-height;
     	margin: 0;
-    	padding: 0;
+    	padding-right: 15px;
     	width: auto;
     	text-decoration: none;
     }
 
     a {
-      color: $nav-color;
+      color: white;
       display: inline-block;
       text-decoration: none;
+      padding-right: 15px;
+      font-weight: 300;
 
       @media screen and (min-width: 860px) {
 	    	padding-right: 36px;
@@ -132,4 +136,63 @@ header.navigation {
       }
     }
   }
+}
+.play-game {
+	z-index: 600;
+
+	span a {
+		background-color: $red;
+    padding: 20px;
+    font-family: $structure;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border: 0;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &:hover {
+      background-color: darken($red, 5%);
+    }
+	}
+}
+.hero {
+	background: url('../assets/images/index-header-bg.jpg') no-repeat;
+	background-size: cover;
+	width: 100%;
+	min-height: 600px;
+	display: block;
+	position: relative;
+
+	.logo-main {
+		position:absolute;
+	  top:50%;
+	  left:50%;
+	  z-index:900;
+	  width: 360px;
+	  //background:darken(#424242, 12%);
+	  @include transform(translate(-55%, -55%));
+	  animation: fadeIn;
+
+	  .st0 {
+	    fill: #31C5F4;
+	    transition:all .2s ease-in-out;
+	  }
+
+	  @media screen and (max-width: 860px) {
+	  	width: 50%;
+	  }
+	}
+	@media screen and (max-width: 860px) {
+		min-height: 40%;
+	}
+}
+.how-to {
+	background-color: darken($green, 20%);
 }
