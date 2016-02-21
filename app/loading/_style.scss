@@ -6,6 +6,7 @@
   //background:darken(#424242, 12%);
   @include transform(translate(-50%, -50%));
   .st0 {
+    fill: white;
     transition:all .2s ease-in-out;
   }
   &:hover {
@@ -16,5 +17,16 @@
   svg {
     width: 59px;
     padding: 50px;
+  }
+  .path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear forwards;
+    fill: $green;
+  }
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 }
