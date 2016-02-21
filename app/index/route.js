@@ -5,15 +5,14 @@ export default Ember.Route.extend({
   session: Ember.inject.service(),
   
   beforeModel() {
-    this.getCurrentLocation();
-  },
-  
-  getCurrentLocation() {
     var route = this;
+    var currentLocation = this.get('geolocation').getLocation();
     
-    this.get('geolocation').getLocation().then(function(geoObject) {
+    currentLocation.then(function(geoObject) {
       route.joinOrCreateEncampment(geoObject);
     });
+    
+    return currentLocation;
   },
   
   joinOrCreateEncampment(geoObject) {
@@ -26,5 +25,14 @@ export default Ember.Route.extend({
     });
     
     this.set('session.currentEncampment', currentEncampment);
+  },
+  
+  actions: {
+    loading: function() {
+      console.log('loading index');
+    },
+    didTransition: function() {
+      console.log('index loaded');
+    }
   }
 });

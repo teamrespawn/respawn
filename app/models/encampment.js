@@ -5,8 +5,14 @@ export default DS.Model.extend({
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   
+  // Resources
   resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
   resources: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
+  
+  // Buildings
+  buildingTypes: ['tents', 'waterReservoirs', 'coldStorage', 'sheds', 'fuelTanks', 'scrapHeaps'],
+  buildingCounts: Ember.computed.collect('tents', 'waterReservoirs', 'coldStorage', 'sheds', 'fuelTanks', 'scrapHeaps'),
+  totalBuildings: Ember.computed.sum('buildingCounts'),
   
   // Survivors
   survivors: DS.attr('number', {defaultValue: 0}),
