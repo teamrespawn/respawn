@@ -5,6 +5,9 @@ export default DS.Model.extend({
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   
+  resourceTypes: ['water', 'food', 'cloth', 'fuel', 'metal'],
+  resources: Ember.computed.collect('water', 'food', 'cloth', 'fuel', 'metal'),
+  
   // Survivors
   survivors: DS.attr('number', {defaultValue: 0}),
   tents: DS.attr('number', {defaultValue: 0}),
@@ -96,7 +99,7 @@ export default DS.Model.extend({
     var results = Ember.Object.create();
     
     Ember.run.later(encampment, function() {
-      ['water', 'food', 'cloth', 'fuel', 'metal'].forEach(function(resource) {
+      this.get('resourceTypes').forEach(function(resource) {
         var baseCapacity = encampment.get('base' + resource.capitalize() + 'Capacity');
         var spaceAvailable = encampment.get(resource + 'SpaceAvailable');
         
@@ -115,5 +118,24 @@ export default DS.Model.extend({
         }
       });
     }, 1000);
+  },
+  
+  purchaseBuilding(building) {
+    if(this.canAfford(building)) {
+      this.incrementProperty(building.storeKey);
+    }
+  },
+  
+  canAfford(building) {
+    var afford = true;
+    
+    this.get('resourceTypes').forEach(function(resource) {
+      var price = building.price[resource] || 0;
+      if(this.get(resource) < price) {
+        afford = false;
+      }
+    }, this);
+    
+    return afford;
   }
 });
