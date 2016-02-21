@@ -184,8 +184,14 @@ export default DS.Model.extend({
         var price = building.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      var count = this.incrementProperty(building.storeKey);
-      this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
+      
+      this.get('messages').newTextMessage(`Building a new ${building.name}...`);
+      this.get('activities').addActivity(`New ${building.name}`, building.time);
+      
+      Ember.run.later(encampment, function() {
+        var count = this.incrementProperty(building.storeKey);
+        this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
+      }, building.time * 1000);
     }
   },
   
