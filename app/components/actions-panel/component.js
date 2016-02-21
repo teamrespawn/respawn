@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   classNames: ['actions-panel'],
   buildings: Ember.inject.service(),
   technologies: Ember.inject.service(),
+  weapons: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   
   resourceObserver: Ember.observer('encampment.resources.@each', function() {

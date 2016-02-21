@@ -18,12 +18,9 @@
   <li class="attack">
     {{inline-svg "assets/images/icons/attack"}}
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      {{#each weapons.types as |weapon|}}
+        {{weapon-sale weapon=weapon}}
+      {{/each}}
     </ul>
   </li>
 </ul>
