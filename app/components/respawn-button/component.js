@@ -29,10 +29,6 @@ export default Ember.Component.extend({
     respawn: function() {
       Ember.Logger.debug('respawning');
       this.get('encampment').addSurvivor();
-      $('.resource-list li').addClass('bounce');
-      setTimeout(function() {
-        $('.resource-list li').removeClass('bounce');
-      }, 2000);
       this.get('respawnTimer').start();
     }
   }

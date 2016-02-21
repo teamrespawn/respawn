@@ -11,6 +11,9 @@
     }
   }
   ul {
+    div {
+      float:left;
+    }
     li {
       width:27%;
       float:left;
@@ -21,6 +24,7 @@
       }
       header {
         display: inline-block;
+
         h1, h2 {
           color:$white;
         }
