@@ -1,17 +1,19 @@
-<div class="pad terminal">
+<ul class="pad terminal">
   {{#each messages.list as |message|}}
     {{#if message.isText}}
-      <li>{{message.text}}</li>
+      <li class="single">{{message.text}}</li>
     {{else}}
-      <ul class="collection">
-        <li class="head">Items Collected:</li>
-        <li>4 Food</li>
-        <li>3 Water</li>
-        <li>6 Clothes</li>
-      </ul>
+      <li class="head">{{message.text}}</li>
+      <li class="collection">
+        <ul>
+          {{#each message.items as |item|}}
+            <li>{{item.count}} {{item.type}}</li>
+          {{/each}}
+        </ul>
+      </li>
     {{/if}}
   {{/each}}
-</div>
+</ul>
 {{search-party-control}}
 <div class="respawn">
   {{respawn-button}}

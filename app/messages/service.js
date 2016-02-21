@@ -9,7 +9,7 @@ export default Ember.Service.extend({
     var message = Text.create({
       text: text
     });
-    this.get('list').unshiftObject(message);
+    this.get('list').pushObject(message);
   },
   
   newCollectionMessage(text, items) {
