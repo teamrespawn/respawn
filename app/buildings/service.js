@@ -2,6 +2,8 @@ import Ember from 'ember';
 import Building from './building';
 
 export default Ember.Service.extend({
+  session: Ember.inject.service(),
+  encampment: Ember.computed.alias('session.currentEncampment'),
   types: Ember.computed.collect('tent', 'waterReservoir', 'coldStorage', 'shed', 'fuelTank', 'scrapHeap'),
   
   tent: Building.create({
@@ -9,6 +11,9 @@ export default Ember.Service.extend({
     price: {
       cloth: 1,
       food: 1
+    },
+    return: {
+      'survivor capacity': 1
     }
   }),
   
@@ -17,6 +22,9 @@ export default Ember.Service.extend({
     price: {
       metal: 1,
       cloth: 1
+    },
+    return: {
+      'water capacity': 1
     }
   }),
   
@@ -25,6 +33,9 @@ export default Ember.Service.extend({
     price: {
       metal: 1,
       water: 1
+    },
+    return: {
+      'food capacity': 1
     }
   }),
   
@@ -33,6 +44,9 @@ export default Ember.Service.extend({
     price: {
       metal: 1,
       food: 1
+    },
+    return: {
+      'cloth capacity': 1
     }
   }),
   
@@ -40,6 +54,9 @@ export default Ember.Service.extend({
     name: 'fuel tank',
     price: {
       metal: 2
+    },
+    return: {
+      'fuel capacity': 1
     }
   }),
   
@@ -48,6 +65,9 @@ export default Ember.Service.extend({
     price: {
       food: 1,
       water: 1
+    },
+    return: {
+      'metal capacity': 1
     }
   })
 });
