@@ -7,17 +7,19 @@
           <span class="meta">
             <span class="title">{{building.name}}</span>
             <span class="elements">
-              <span class="owned">Owned 
-                <span class="data-owned">{{building.count}}</span>
-              </span>
+
+              <span class="head">Owned:</span>
+              <ul class="owned">
+                <li>{{#if build.count}}{{building.count}}{{else}}0{{/if}}</li>
+              </ul>
+              <span class="head">Gain:</span>
               <ul class="rewards">
-                Gain:
                 {{#each-in building.return as |reward amount|}}
                   <li class="data-benefit">+{{amount}} Survivors</li>
                 {{/each-in}}
               </ul>
+              <span class="head">Cost:</span>
               <ul class="costs">
-                Cost:
                 {{#each-in building.price as |resource cost|}}
                   <li class="data-cost">-{{cost}} {{resource}}</li>
                 {{/each-in}}
