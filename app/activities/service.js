@@ -8,9 +8,10 @@ export default Ember.Service.extend({
     var activities = this;
     var activity = Activity.create({
       title: title,
-      timeLeft: time
+      time: time
     });
     
+    activity.start();
     var index = this.get('list').pushObject(activity);
     
     Ember.run.later(activities, function() {
