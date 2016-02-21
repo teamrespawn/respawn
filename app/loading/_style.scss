@@ -4,7 +4,7 @@
   left:50%;
   z-index:2;
   //background:darken(#424242, 12%);
-  @include transform(translate(-50%, -50%));
+  @include transform(translate(-55%, -55%));
   .st0 {
     fill: white;
     transition:all .2s ease-in-out;
@@ -15,18 +15,14 @@
     }
   }
   svg {
-    width: 59px;
+    width: 120px;
     padding: 50px;
   }
+  @keyframes hideshow {
+    0% { fill: #FFFFFF; }
+    100% { fill: $green; }
+  } 
   .path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: dash 5s linear forwards;
-    fill: $green;
-  }
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
+    animation: hideshow 5s ease infinite;
   }
 }
