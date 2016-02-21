@@ -2,99 +2,27 @@
   <li>
   {{inline-svg "assets/images/icons/tech"}}
     <ul>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
-            </span>
-          </span>
-        </span>
-        <a class="build" href="#">Build</a>
-      </li>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
+      {{#each buildings.types as |building|}}
+        <li>
+          <span class="meta">
+            <span class="title">{{building.name}}</span>
+            <span class="elements">
+              <span class="owned">Owned 
+                <span class="data-owned">2</span>
+              </span>
+              <span class="benefit">
+                Gain:
+                <span class="data-benefit">+2 Survivors</span>
+              </span>
+              <span class="cost">
+                Cost:
+                <span class="data-cost">-2 Cloth</span>
+              </span>
             </span>
           </span>
-        </span>
-      </li>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
-            </span>
-          </span>
-        </span>
-      </li>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
-            </span>
-          </span>
-        </span>
-      </li>
-      <li>
-        <span class="meta">
-          <span class="title">Lean-to</span>
-          <span class="elements">
-            <span class="owned">Owned 
-              <span class="data-owned">2</span>
-            </span>
-            <span class="benefit">
-              Gain:
-              <span class="data-benefit">+2 Survivors</span>
-            </span>
-            <span class="cost">
-              Cost:
-              <span class="data-cost">-2 Cloth</span>
-            </span>
-          </span>
-        </span>
-      </li>
-      
-
+          <a class="build" href="#">Build</a>
+        </li>
+      {{/each}}
     </ul>
   </li>
   <li>
