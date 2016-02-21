@@ -6,8 +6,8 @@ export default Ember.Component.extend({
   session: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   
-  canIncrement: Ember.computed('searchPartySize', 'encampment.survivors', function() {
-    return this.get('searchPartySize') < this.get('encampment.survivors');
+  canIncrement: Ember.computed('searchPartySize', 'encampment.availableSurvivors', function() {
+    return this.get('searchPartySize') < this.get('encampment.availableSurvivors');
   }),
   maxedOut: Ember.computed.not('canIncrement'),
   canDecrement: Ember.computed.gt('searchPartySize', 0),
