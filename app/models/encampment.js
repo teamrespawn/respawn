@@ -115,7 +115,6 @@ export default DS.Model.extend({
           results.set(resource, count);
         }
       });
-      
     }, 1000);
   }
 });
