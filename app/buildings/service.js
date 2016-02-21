@@ -12,6 +12,7 @@ export default Ember.Service.extend({
       cloth: 1,
       food: 1
     },
+    storeKey: 'tents',
     return: {
       'survivor capacity': 1
     }
@@ -23,6 +24,7 @@ export default Ember.Service.extend({
       metal: 1,
       cloth: 1
     },
+    storeKey: 'waterReservoirs',
     return: {
       'water capacity': 1
     }
@@ -34,6 +36,7 @@ export default Ember.Service.extend({
       metal: 1,
       water: 1
     },
+    storeKey: 'coldStorage',
     return: {
       'food capacity': 1
     }
@@ -45,6 +48,7 @@ export default Ember.Service.extend({
       metal: 1,
       food: 1
     },
+    storeKey: 'sheds',
     return: {
       'cloth capacity': 1
     }
@@ -55,6 +59,7 @@ export default Ember.Service.extend({
     price: {
       metal: 2
     },
+    storeKey: 'fuelTanks',
     return: {
       'fuel capacity': 1
     }
@@ -66,6 +71,7 @@ export default Ember.Service.extend({
       food: 1,
       water: 1
     },
+    storeKey: 'scrapHeaps',
     return: {
       'metal capacity': 1
     }

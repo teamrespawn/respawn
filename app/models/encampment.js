@@ -121,7 +121,12 @@ export default DS.Model.extend({
   },
   
   purchaseBuilding(building) {
+    var encampment = this;
     if(this.canAfford(building)) {
+      this.get('resourceTypes').forEach(function(resource) {
+        var price = building.price[resource] || 0;
+        this.decrementProperty(resource, price);
+      }, encampment);
       this.incrementProperty(building.storeKey);
     }
   },
