@@ -9,11 +9,5 @@ export default Ember.Component.extend({
   
   resourceObserver: Ember.observer('encampment.resources.@each', function() {
     Ember.Logger.debug('resource values changed');
-  }),
-  
-  actions: {
-    purchaseBuilding: function(building) {
-      this.get('encampment').purchaseBuilding(building);
-    }
-  }
+  })
 });
