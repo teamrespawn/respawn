@@ -4,7 +4,14 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'respawn',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: { 
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' *.googleapis.com maps.gstatic.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'img-src': "'self' *.googleapis.com maps.gstatic.com csi.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com"
+    },
     firebase: 'https://respawn-game.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
@@ -14,10 +21,8 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      styles:[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"},{"weight":"0.20"},{"lightness":"28"},{"saturation":"23"},{"visibility":"off"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#494949"},{"lightness":13},{"visibility":"off"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
     }
   };
 
