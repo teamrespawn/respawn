@@ -1,9 +1,17 @@
-<header>
-	<nav class="nav-bar">
-		<ul>
-			<li>Play</li>
-		</ul>
-	</nav>
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <div class="logo">
+    	{{inline-svg "assets/images/icons/respawn_r_logo"}}
+  	</div>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="javascript:void(0)">How to Play</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">About</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Play</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <section id="play" class="play-game">
 	<span>{{link-to 'Enter game' 'game'}}</span>
