@@ -15,7 +15,8 @@ export default Ember.Service.extend({
     storeKey: 'tents',
     return: {
       'survivor capacity': 1
-    }
+    },
+    time: 2
   }),
   
   waterReservoir: Building.create({
@@ -27,7 +28,8 @@ export default Ember.Service.extend({
     storeKey: 'waterReservoirs',
     return: {
       'water capacity': 1
-    }
+    },
+    time: 2
   }),
   
   coldStorage: Building.create({
@@ -39,7 +41,8 @@ export default Ember.Service.extend({
     storeKey: 'coldStorage',
     return: {
       'food capacity': 1
-    }
+    },
+    time: 2
   }),
   
   shed: Building.create({
@@ -51,7 +54,8 @@ export default Ember.Service.extend({
     storeKey: 'sheds',
     return: {
       'cloth capacity': 1
-    }
+    },
+    time: 2
   }),
   
   fuelTank: Building.create({
@@ -62,7 +66,8 @@ export default Ember.Service.extend({
     storeKey: 'fuelTanks',
     return: {
       'fuel capacity': 1
-    }
+    },
+    time: 2
   }),
   
   scrapHeap: Building.create({
@@ -74,6 +79,7 @@ export default Ember.Service.extend({
     storeKey: 'scrapHeaps',
     return: {
       'metal capacity': 1
-    }
+    },
+    time: 2
   })
 });
