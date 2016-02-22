@@ -199,11 +199,6 @@ header.navigation {
 	padding: 40px;
 	color: #081E1E;
 
-	hr {
-		border-color: transparentize(#081E1E, 0.9);
-	}
-}
-section {
 	h1 {
 		font-size: 48px;
 		font-family: $structure;
@@ -217,6 +212,10 @@ section {
 		font-size: 18px;
 		font-family: $structure;
 		margin-top: 40px;
+		line-height: 2.0;
+	}
 
+	hr {
+		border-color: transparentize(#081E1E, 0.9);
 	}
 }
