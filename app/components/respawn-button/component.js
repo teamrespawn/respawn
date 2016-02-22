@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   respawnTimer: Ember.inject.service(),
   session: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
+  messages: Ember.inject.service(),
   
   canRespawn: Ember.computed('encampment.hasVacancy', 'respawnTimer.expired', function() {
     return this.get('encampment.hasVacancy') && this.get('respawnTimer.expired');
@@ -18,7 +19,7 @@ export default Ember.Component.extend({
     if(this.get('canRespawn')) {
       this.send('respawn');
     } else {
-      Ember.Logger.debug('timer already running');
+      this.get('messages').newTextMessage("You don't have anymore room in your camp...");
     }
   },
 
