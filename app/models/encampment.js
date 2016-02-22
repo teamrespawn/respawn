@@ -24,7 +24,7 @@ export default DS.Model.extend({
   }),
   tents: DS.attr('number', {defaultValue: 0}),
   shacks: DS.attr('number', {defaultValue: 0}),
-  baseCapacity: 10,
+  baseCapacity: 1,
   survivorCapacity: Ember.computed('tents', 'shacks', 'baseCapacity', function() {
     var model = this;
     
