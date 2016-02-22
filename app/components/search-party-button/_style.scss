@@ -1,0 +1,7 @@
+.search-party-action {
+  cursor: not-allowed;
+  
+  &.enabled {
+    cursor: pointer;
+  }
+}
