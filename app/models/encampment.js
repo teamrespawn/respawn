@@ -148,7 +148,16 @@ export default DS.Model.extend({
   addSurvivor() {
     if(this.get('hasVacancy')) {
       var count = this.incrementProperty('survivors');
-      this.get('messages').newTextMessage(`You now have ${count} survivors`);
+      var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+      var addlSurvivors = [
+      `You have found an additional survivor.`, 
+      `Someone wandered in.`,
+      `A person needed help in the wasteland.`,
+      `A cowboy rode in on an irradiated muskrat.`,
+      `An other-worldly portal opened and out stepped a man in a leather duster.`,
+      `While exploring, you encountered a stranger in need.`,
+      ];
+      this.get('messages').newTextMessage(addlSurvivors[Math.floor(Math.random()*addlSurvivors.length)] + ` You now have ${count} survivors in your encampment.`);
     }
   },
   

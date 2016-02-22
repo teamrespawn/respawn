@@ -11,7 +11,9 @@
   text-transform: uppercase;
   font-size: 18px;
   display: block;
-  
+  span.small {
+    font-size:10px;
+  }
   &:hover {
     background:darken($green, 10%);
   }
@@ -21,12 +23,13 @@
   }
   > .timer {
     position: relative;
-
+    
     span.time-counter {
       color: #242424;
       position: absolute;
       top: -14px;
       right: 30px;
+      color:darken($green, 15%);
     }
   }
 }
