@@ -1,2 +1,6 @@
-<div class="mapReplace"></div>
+{{#if giphy.current}}
+  <div class="mapReplace">
+    <img src={{giphy.current.link}}/>
+  </div>
+{{/if}}
 {{g-maps name="map" lat=latitude lng=longitude styles=styles zoom=zoom mapType="terrain" classNames="the-map" showZoomControl=false showMapTypeControl=false}}

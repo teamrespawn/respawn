@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   classNames: ['search-party-action'],
   
   session: Ember.inject.service(),
+  giphy: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   messages: Ember.inject.service(),
   
@@ -15,6 +16,7 @@ export default Ember.Component.extend({
     var partySize = this.get('searchPartySize');
     this.get('messages').newTextMessage(`Sending out a search party of ${partySize} survivors...`);
     this.get('encampment').collectResources(partySize);
+    this.get('giphy').newGiphyAction('scout');
     this.sendAction('reset');
   }
 });

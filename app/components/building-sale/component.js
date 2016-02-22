@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   encampment: Ember.computed.alias('session.currentEncampment'),
-  
+  giphy: Ember.inject.service(),
   tagName: 'li',
   classNames: ['building-sale'],
   
@@ -15,6 +15,7 @@ export default Ember.Component.extend({
   actions: {
     purchaseBuilding: function(building) {
       this.get('encampment').purchaseBuilding(building);
+      this.get('giphy').newGiphyAction('build');
     }
   }
 });
