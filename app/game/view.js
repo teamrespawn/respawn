@@ -20,3 +20,6 @@ function storyResize() {
   $('.terminal').css('max-height', termHeight);
   $('.terminal').css('width', storyWidth);
 }
+$(document).ready(function () {
+  $('html, body').addClass('stick');
+});
