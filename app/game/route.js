@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   geolocation: Ember.inject.service(),
   session: Ember.inject.service(),
+  gameProgress: Ember.inject.service(),
   
   beforeModel() {
     var route = this;
@@ -11,6 +12,10 @@ export default Ember.Route.extend({
     currentLocation.then(function(geoObject) {
       route.joinOrCreateEncampment(geoObject);
     });
+    
+    if(route.get('gameProgress.atBeginning')) {
+      route.get('gameProgress').advanceStage();
+    }
     
     return currentLocation;
   },
