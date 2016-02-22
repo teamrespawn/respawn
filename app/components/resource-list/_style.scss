@@ -27,6 +27,20 @@
         float:none;
         margin:0 auto;
         padding:20px 10px;
+        svg {
+          width:46px;
+          max-width:none;
+        }
+        header {
+          width:60px;
+        }
+        h1 {
+          text-align:center;
+          width:100%;
+        }
+        h2 {
+          text-align:center;
+        }
         &:nth-child(1) {
           padding-bottom:10px;
         }
