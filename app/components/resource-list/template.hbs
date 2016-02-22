@@ -1,14 +1,29 @@
 <h3>
   {{inline-svg "assets/images/icons/resources"}} Resources
 </h3>
+<ul class="atkdef">
+  <li>
+    {{inline-svg "/assets/images/icons/attack.svg"}}
+    <header>
+      <h1>Attack</h1>
+      <h2>{{liquid-bind encampment.food}}/{{liquid-bind encampment.foodCapacity}}</h2>
+    </header>
+  </li>
+  <li>
+    {{inline-svg "/assets/images/icons/water_resource.svg"}}
+    <header>
+      <h1>Defense</h1>
+      <h2>{{liquid-bind encampment.water}}/{{liquid-bind encampment.waterCapacity}}</h2>
+    </header>
+  </li>
+</ul>
 <ul>
-  
   <li class="survivors">
     {{inline-svg "/assets/images/icons/survivor.svg"}}
     <header>
       <h1>Survivors</h1>
       <h2 class="liquid">
-        {{liquid-bind encampment.survivors}}/{{encampment.survivorCapacity}}
+        {{liquid-bind encampment.survivors}}/{{liquid-bind encampment.survivorCapacity}}
         {{#unless encampment.allSurvivorsAreIdle}}
           <span class="busy">({{encampment.busySurvivors}} Busy)</span>
         {{/unless}}
@@ -20,35 +35,35 @@
     {{inline-svg "/assets/images/icons/food_resource.svg"}}
     <header>
       <h1>Food</h1>
-      <h2>{{encampment.food}}/{{encampment.foodCapacity}}</h2>
+      <h2>{{liquid-bind encampment.food}}/{{liquid-bind encampment.foodCapacity}}</h2>
     </header>
   </li>
   <li>
     {{inline-svg "/assets/images/icons/water_resource.svg"}}
     <header>
       <h1>Water</h1>
-      <h2>{{encampment.water}}/{{encampment.waterCapacity}}</h2>
+      <h2>{{liquid-bind encampment.water}}/{{liquid-bind encampment.waterCapacity}}</h2>
     </header>
   </li>
   <li>
     {{inline-svg "/assets/images/icons/fuel_resource.svg"}}
     <header>
       <h1>Fuel</h1>
-      <h2>{{encampment.fuel}}/{{encampment.fuelCapacity}}</h2>
+      <h2>{{liquid-bind encampment.fuel}}/{{liquid-bind encampment.fuelCapacity}}</h2>
     </header>
   </li>
   <li>
     {{inline-svg "/assets/images/icons/cloth_resource.svg"}}
     <header>
       <h1>Cloth</h1>
-      <h2>{{encampment.cloth}}/{{encampment.clothCapacity}}</h2>
+      <h2>{{liquid-bind encampment.cloth}}/{{liquid-bind encampment.clothCapacity}}</h2>
     </header>
   </li>
   <li>
     {{inline-svg "/assets/images/icons/metal_resource.svg"}}
     <header>
       <h1>Metal</h1>
-      <h2>{{encampment.metal}}/{{encampment.metalCapacity}}</h2>
+      <h2>{{liquid-bind encampment.metal}}/{{liquid-bind encampment.metalCapacity}}</h2>
     </header>
   </li>
 </ul>
