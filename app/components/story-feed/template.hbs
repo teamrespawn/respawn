@@ -1,7 +1,7 @@
 <ul class="pad terminal">
   {{#each messages.list as |message|}}
     {{#if message.isText}}
-      <li class="single">{{message.text}}</li>
+      <li class={{message.display}}>{{message.text}}</li>
     {{else}}
       <ul class="collection">
         <li class="head">{{message.text}}</li>
