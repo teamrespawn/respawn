@@ -147,7 +147,7 @@ header.navigation {
 
 	span a {
 		background-color: $red;
-    padding: 30px;
+    padding: 30px 0;
     font-family: $structure;
     font-size: 18px;
     font-weight: 700;
@@ -211,7 +211,7 @@ header.navigation {
 }
 .story {
 	background-color: #31C5F4;
-	padding: 40px;
+	padding: 40px 40px 80px;
 	color: #081E1E;
 
 	h1 {
@@ -232,5 +232,66 @@ header.navigation {
 
 	hr {
 		border-color: transparentize(#081E1E, 0.9);
+	}
+}
+.features {
+	background-color: #081E1E;
+	padding: 40px 40px 80px;
+	color: #31C5F4;
+
+	h1 {
+		font-size: 48px;
+		font-family: $structure;
+		font-weight: 700;
+		margin: 0 auto;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 20px 0;
+		color: $green;
+	}
+	p {
+		font-size: 18px;
+		font-family: $structure;
+		font-weight: 300;
+		margin-top: 40px;
+		line-height: 1.25;
+		width: 75%;
+		margin: 0 auto;
+		color: $green;
+	}
+
+	hr {
+		border-color: transparentize($green, 0.9);
+	}
+	> .left {	
+		float: left;
+		width:49%;
+		display: inline-block;
+
+		.info-box {
+			width: 100%;
+			min-height: 100px;
+			text-align: center;
+			margin: 40px 0;
+
+			> span.icon svg {
+				width: 120px;
+				margin: 20px auto;
+
+			}
+			> p {
+				width: 50%;
+			}
+		}
+		@media screen and (max-width: 480px) {
+			width: 100%;
+			clear: both;
+			display: block;
+		}
+	}
+	.clear {
+		clear: both;
+		content: '';
+
 	}
 }
