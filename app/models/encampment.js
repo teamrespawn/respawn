@@ -202,8 +202,14 @@ export default DS.Model.extend({
         var price = tech.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      var count = this.incrementProperty(tech.storeKey);
-      this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
+      
+      this.get('messages').newTextMessage(`Researching a new ${tech.name}...`);
+      this.get('activities').addActivity(`New ${tech.name}`, tech.time);
+      
+      Ember.run.later(encampment, function() {
+        var count = this.incrementProperty(tech.storeKey);
+        this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
+      }, tech.time * 1000);
     }
   },
   
@@ -214,8 +220,14 @@ export default DS.Model.extend({
         var price = weapon.price[resource] || 0;
         this.decrementProperty(resource, price);
       }, encampment);
-      var count = this.incrementProperty(weapon.storeKey);
-      this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
+      
+      this.get('messages').newTextMessage(`Building a new ${weapon.name}...`);
+      this.get('activities').addActivity(`New ${weapon.name}`, weapon.time);
+      
+      Ember.run.later(encampment, function() {
+        var count = this.incrementProperty(weapon.storeKey);
+        this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
+      }, weapon.time * 1000);
     }
   },
   

@@ -13,7 +13,8 @@ export default Ember.Service.extend({
     },
     benefit: {
       something: 1
-    }
+    },
+    time: 2
   }),
   
   vehicle: Technology.create({
@@ -24,7 +25,8 @@ export default Ember.Service.extend({
     },
     benefit: {
       something: 1
-    }
+    },
+    time: 2
   }),
   
   lights: Technology.create({
@@ -35,7 +37,8 @@ export default Ember.Service.extend({
     },
     benefit: {
       something: 1
-    }
+    },
+    time: 2
   }),
   
   radio: Technology.create({
@@ -46,7 +49,8 @@ export default Ember.Service.extend({
     },
     benefit: {
       something: 1
-    }
+    },
+    time: 2
   }),
   
   drone: Technology.create({
@@ -57,6 +61,7 @@ export default Ember.Service.extend({
     },
     benefit: {
       something: 1
-    }
+    },
+    time: 2
   })
 });

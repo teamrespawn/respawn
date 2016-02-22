@@ -5,9 +5,10 @@ import Collection from './collection';
 export default Ember.Service.extend({
   list: [],
   
-  newTextMessage(text) {
+  newTextMessage(text, display='info') {
     var message = Text.create({
-      text: text
+      text: text,
+      display: display
     });
     this.get('list').pushObject(message);
     scrollBottom();
