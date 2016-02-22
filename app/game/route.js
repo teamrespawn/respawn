@@ -27,3 +27,4 @@ export default Ember.Route.extend({
     this.set('session.currentEncampment', currentEncampment);
   }
 });
+

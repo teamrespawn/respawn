@@ -20,7 +20,7 @@
     margin: 0;
     height: 100%;
     display: block;
-
+    cursor:auto;
     > button {
       padding: 5% 10%;
       font-family: $structure;
@@ -39,12 +39,14 @@
         right: 0;
         bottom: 61px;
         z-index: 300;
+        cursor:pointer;
       }
       &:nth-of-type(1) {
         position: absolute;
         left: 0;
         bottom: 61px;
         z-index: 300;
+        cursor:pointer;
       }
     }
     > span.scouting {
@@ -91,7 +93,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-
+      cursor:pointer;
       &:hover {
         background-color: darken($red, 5%);
       }
