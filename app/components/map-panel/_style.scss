@@ -7,6 +7,22 @@
   height:100%;
   position:absolute;
   z-index:1;
+  .checker {
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:2;
+    padding:5px;
+    background:rgba(0,0,0,.4);
+    color:darken($white,20%);
+    font-family:$structure;
+    font-size:8px;
+
+    text-transform:uppercase;
+    label {
+      padding-bottom:2px;
+    }
+  }
 }
 .mapReplace {
   position:absolute;
