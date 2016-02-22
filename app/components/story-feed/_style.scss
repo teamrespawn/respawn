@@ -1,4 +1,7 @@
 .story-feed {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
   background: lighten(black, 20%);
   color: $green;
   height:100%;
@@ -8,10 +11,9 @@
   z-index:2;
   top:0;
   .terminal {
-    max-height:400px;
+    @include flex(1);
+    min-height:100px;
     overflow-y:scroll;
-    position:absolute;
-    bottom:304px;
     width:96%;
   }
   .error {
