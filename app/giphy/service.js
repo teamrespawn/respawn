@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Gif from './list';
 
 export default Ember.Service.extend({
+  checked: '',
   list: {
     scout1:{
       link:"https://49.media.tumblr.com/434ea8a55a89c9b9464aa25b28daef59/tumblr_nh27kfwwXs1tgmzako1_400.gif", 
@@ -46,15 +47,14 @@ export default Ember.Service.extend({
     
   },
   newGiphyAction(type) {
+    console.log(this.get('checked'));
     var num = Math.floor((Math.random() * 2) + 1);
     var typenum = type+num;
     var gif = this.get("list")[typenum];
-    $('.map').css('z-index',3);
     this.set("current", gif);
     var giffy = this;
     Ember.run.later((function() {
       giffy.set("current", null);
-      $('.map').css('z-index',1);
     }), this.get('list')[typenum].length);
   }
 });

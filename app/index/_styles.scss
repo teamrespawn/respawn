@@ -176,14 +176,25 @@ header.navigation {
 	  left:50%;
 	  z-index:900;
 	  width: 360px;
-	  padding: 40px;
+	  padding: 80px;
 	  //background:darken(#424242, 12%);
 	  @include transform(translate(-52%, -52%));
-
+		
+		@keyframes fadeIn {
+		  0% {
+		    transform: opacity(0);
+		    opacity: 0;
+		  }
+		  100% {
+		    transform: opacity(100%);
+		    opacity: 1;
+		  }
+		}
 	  .st0 {
 	    fill: #31C5F4;
 	    transition:all .2s ease-in-out;
-	    @include animation(fade 2.0s ease-in);
+	    animation-duration: 3s;
+ 		  animation-name: fadeIn;
 	  }
 
 	  @media screen and (max-width: 860px) {

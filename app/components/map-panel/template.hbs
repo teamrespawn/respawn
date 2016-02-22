@@ -1,6 +1,12 @@
+<div class="checker">
+  {{input type="checkbox" id="isChecked" name="isChecked" checked=isChecked}}
+  <label for="isChecked" class="title">Turn Off Gifs</label>
+</div>
 {{#if giphy.current}}
-  <div class="mapReplace">
-    <img src={{giphy.current.link}}/>
-  </div>
+  {{#if isChecked}}{{else}}
+    <div class="mapReplace">
+      <img src={{giphy.current.link}}/>
+    </div>
+  {{/if}}
 {{/if}}
 {{g-maps name="map" lat=latitude lng=longitude styles=styles zoom=zoom mapType="terrain" classNames="the-map" showZoomControl=false showMapTypeControl=false}}
