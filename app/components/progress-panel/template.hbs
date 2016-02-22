@@ -1,8 +1,12 @@
 <h3>{{inline-svg "assets/images/icons/activity_feed"}} Activities</h3>
 <ul>
+{{#if activities.list}}
   {{#each activities.list as |activity|}}
     {{activity-progress activity=activity}}
   {{/each}}
+{{else}}
+  <span class="empty">Your activity queue is empty.</span>
+{{/if}}
 </ul>
 
   
