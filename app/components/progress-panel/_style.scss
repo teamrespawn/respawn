@@ -18,6 +18,16 @@
     max-height:150px;
     overflow-y:scroll;
     padding-right:15px;
+    span.empty {
+      color:darken($lt-grey,50%);
+      text-align:center;
+      display:block;
+      padding:10px;
+      text-transform:uppercase;
+      font-family:$structure;
+      font-size:12px;
+      background:rgba(0,0,0,.2);
+    }
   }
   .action-title {
     display:block;

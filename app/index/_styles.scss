@@ -135,6 +135,11 @@ header.navigation {
         color: $nav-color-hover;
       }
     }
+    &:last-child {
+    	a:hover {
+				color: $red;
+    	}
+    }
   }
 }
 .play-game {
@@ -142,7 +147,7 @@ header.navigation {
 
 	span a {
 		background-color: $red;
-    padding: 20px;
+    padding: 30px;
     font-family: $structure;
     font-size: 18px;
     font-weight: 700;
