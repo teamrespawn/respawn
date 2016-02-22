@@ -160,6 +160,7 @@ header.navigation {
     text-decoration: none;
     position: fixed;
     bottom: 0;
+    left: 0;
 
     &:hover {
       background-color: darken($red, 5%);
@@ -209,7 +210,7 @@ header.navigation {
 		min-height: 40%;
 	}
 }
-.story {
+.story, .credits {
 	background-color: #31C5F4;
 	padding: 40px 40px 80px;
 	color: #081E1E;
@@ -234,7 +235,7 @@ header.navigation {
 		border-color: transparentize(#081E1E, 0.9);
 	}
 }
-.features {
+.resources {
 	background-color: #081E1E;
 	padding: 40px 40px 80px;
 	color: #31C5F4;
@@ -270,7 +271,7 @@ header.navigation {
 
 		.info-box {
 			width: 100%;
-			min-height: 100px;
+			min-height: 260px;
 			text-align: center;
 			margin: 40px 0;
 
@@ -293,5 +294,18 @@ header.navigation {
 		clear: both;
 		content: '';
 
+	}
+}
+.credits {
+	background-color: white;
+	padding-bottom: 130px;
+	> p {
+		text-align: center;
+
+		a {
+			text-decoration: none;
+			color: $red;
+			font-weight: 700;
+		}
 	}
 }
