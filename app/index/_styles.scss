@@ -135,6 +135,11 @@ header.navigation {
         color: $nav-color-hover;
       }
     }
+    &:last-child {
+    	a:hover {
+				color: $red;
+    	}
+    }
   }
 }
 .play-game {

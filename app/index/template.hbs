@@ -1,14 +1,15 @@
-<header class="navigation" role="banner">
+<header id="home" class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <div class="logo">
-    	{{inline-svg "assets/images/icons/respawn_r_logo" link "#home"}}
+    <div class="logo" href="#home">
+    	{{inline-svg "assets/images/icons/respawn_r_logo" href "#home"}}
   	</div>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><a href="javascript:void(0)">The Story</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Features</a></li>
-        <li class="nav-link">{{link-to 'Play' 'game'}}</li>
+        <li class="nav-link"><a href="#story">The Story</a></li>
+        <li class="nav-link"><a href="#features">Features</a></li>
+        <li class="nav-link"><a href="#credits">Credits</a></li>
+        <li class="nav-link">{{link-to 'Launch Game' 'game'}}</li>
       </ul>
     </nav>
   </div>
@@ -19,9 +20,41 @@
   	</div>
 </section>
 <section id="story" class="story">
-	<h1>The Story Behind </h1>
+	<h1>The Story of Respawn</h1>
 	<hr>
-	<p> </p>
+	<p>Imagine you’ve awoken to a post-apocalyptic wasteland. Everyone now has to learn about survival skills, build shit, defend themselves, etc. But what if everything still existed (e.g. the Internet, mobile phones, GIFs, etc.), but it couldn’t go on without you. It’s now your job to live on, survive and “respawn” the world to its rightful glory. </p>
+</section>
+<section id="features" class="features">
+	<h1>Respawn Features</h1>
+	<p></p>
+	<div class="left">
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+	</div>
+	<div class="right">
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+		<div class="info-box">
+			<span class="icon">{{inline-svg "assets/images/icons/survivor" link}}</span>
+			<p>The most important resource is people. You need people to survive.</p>
+		</div>
+	</div>
 </section>
 <section id="play" class="play-game">
 	<span>{{link-to 'Launch Game' 'game'}}</span>
