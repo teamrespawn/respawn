@@ -2,5 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['story-feed'],
-  messages: Ember.inject.service()
+  messages: Ember.inject.service(),
+  gameProgress: Ember.inject.service()
 });

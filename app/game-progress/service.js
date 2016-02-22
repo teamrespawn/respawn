@@ -11,6 +11,7 @@ export default Ember.Service.extend({
     })
   ],
   
+  session: Ember.inject.service(),
   messages: Ember.inject.service(),
   
   atBeginning: Ember.computed.lte('currentStage', 0),
@@ -24,5 +25,7 @@ export default Ember.Service.extend({
   
   advanceStage() {
     return this.incrementProperty('currentStage');
-  }
+  },
+  
+  canSearch: Ember.computed.gt('session.currentEncampment.survivors', 0)
 });
