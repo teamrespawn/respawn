@@ -17,10 +17,14 @@
     color:darken($white,20%);
     font-family:$structure;
     font-size:8px;
-
     text-transform:uppercase;
+    input {
+      width:12px;
+      height:12px;
+    }
     label {
       padding-bottom:2px;
+      margin-left:4px;
     }
   }
 }
