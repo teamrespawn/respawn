@@ -12,7 +12,9 @@
     {{/if}}
   {{/each}}
 </ul>
-{{search-party-control}}
 <div class="respawn">
   {{respawn-button}}
 </div>
+{{#if gameProgress.canSearch}}
+  {{search-party-control}}
+{{/if}}
