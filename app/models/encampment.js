@@ -210,7 +210,7 @@ export default DS.Model.extend({
         this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
       }, building.time * 1000);
     } else {
-      this.get('messages').newTextMessage(`You don't have enough resources to build a ${building.name}.`);
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${building.name}.`, "error");
     }
   },
   
@@ -230,7 +230,7 @@ export default DS.Model.extend({
         this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
       }, tech.time * 1000);
     } else {
-      this.get('messages').newTextMessage(`You don't have enough resources to build a ${tech.name}.`);
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${tech.name}.`, "error");
     }
   },
   
@@ -250,7 +250,7 @@ export default DS.Model.extend({
         this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
       }, weapon.time * 1000);
     } else {
-      this.get('messages').newTextMessage(`You don't have enough resources to build a ${weapon.name}.`);
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${weapon.name}.`, "error");
     }
   },
   
