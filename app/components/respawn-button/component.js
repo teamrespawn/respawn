@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     if(this.get('canRespawn')) {
       this.send('respawn');
     } else {
-      this.get('messages').newTextMessage("You don't have anymore room in your camp...", "error");
+      this.get('messages').newTextMessage("You don't have enough room in your camp...", "error");
     }
   },
 

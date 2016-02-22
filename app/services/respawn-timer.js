@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+  currentTime: 1,
+  previousTime: 0,
   timeLeft: 0,
   expired: Ember.computed.lte('timeLeft', 0),
   running: Ember.computed.not('expired'),
@@ -19,7 +21,11 @@ export default Ember.Service.extend({
   },
   
   start() {
-    this.set('timeLeft', 0);
+    var time = this.get('currentTime');
+    var newTime = this.get('previousTime') + time;
+    this.set('timeLeft', time);
     this.run();
+    this.set('previousTime', time);
+    this.set('currentTime', newTime);
   }
 });
