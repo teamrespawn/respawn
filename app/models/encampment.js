@@ -36,6 +36,7 @@ export default DS.Model.extend({
     return this.get('survivorCapacity') - this.get('survivors');
   }),
   hasVacancy: Ember.computed.gt('vacancies', 0),
+  noVacancy: Ember.computed.not('hasVacancy'),
   
   
   // Resources
