@@ -19,8 +19,12 @@ export default Ember.Component.extend({
   click() {
     if(this.get('canRespawn')) {
       this.send('respawn');
-    } else {
+    } else if(this.get('encampment.noVacancy')) {
       this.get('messages').newTextMessage("You don't have enough room in your camp...", "error");
+    } else if(this.get('respawnTimer.running')) {
+      this.get('messages').newTextMessage("You can't respawn just yet. Be patient.", "error");
+    } else {
+      this.get('messages').newTextMessage("Respawning isn't available right now.", "error");
     }
   },
 

@@ -36,6 +36,7 @@ export default DS.Model.extend({
     return this.get('survivorCapacity') - this.get('survivors');
   }),
   hasVacancy: Ember.computed.gt('vacancies', 0),
+  noVacancy: Ember.computed.not('hasVacancy'),
   
   
   // Resources
@@ -120,12 +121,28 @@ export default DS.Model.extend({
   weaponTypes: ['bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'],
   weaponCounts: Ember.computed.collect('bearTraps', 'chainsaws', 'pistols', 'shotguns', 'rpgs'),
   totalWeapons: Ember.computed.sum('weaponCounts'),
+  weapons: Ember.inject.service(),
   
   bearTraps: DS.attr('number', {defaultValue: 0}),
   chainsaws: DS.attr('number', {defaultValue: 0}),
   pistols: DS.attr('number', {defaultValue: 0}),
   shotguns: DS.attr('number', {defaultValue: 0}),
   rpgs: DS.attr('number', {defaultValue: 0}),
+  
+  attackPoints: Ember.computed('totalWeapons', function() {
+    var encampment = this;
+    return this.get('weaponTypes').reduce(function(previousValue, item) {
+      var weaponAttack = encampment.get('weapons.types').findBy('storeKey', item).get('power.attack');
+      return previousValue + (encampment.get(item) * weaponAttack);
+    }, 1);
+  }),
+  defensePoints: Ember.computed('totalWeapons', function() {
+    var encampment = this;
+    return this.get('weaponTypes').reduce(function(previousValue, item) {
+      var weaponDefense = encampment.get('weapons.types').findBy('storeKey', item).get('power.defense');
+      return previousValue + (encampment.get(item) * weaponDefense);
+    }, 1);
+  }),
   
   // Methods
   addSurvivor() {
@@ -192,6 +209,8 @@ export default DS.Model.extend({
         var count = this.incrementProperty(building.storeKey);
         this.get('messages').newTextMessage(`You added a ${building.name}. You now have ${count}.`);
       }, building.time * 1000);
+    } else {
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${building.name}.`);
     }
   },
   
@@ -203,13 +222,15 @@ export default DS.Model.extend({
         this.decrementProperty(resource, price);
       }, encampment);
       
-      this.get('messages').newTextMessage(`Researching a new ${tech.name}...`);
+      this.get('messages').newTextMessage(`Building a new ${tech.name}...`);
       this.get('activities').addActivity(`New ${tech.name}`, tech.time);
       
       Ember.run.later(encampment, function() {
         var count = this.incrementProperty(tech.storeKey);
         this.get('messages').newTextMessage(`You added a ${tech.name}. You now have ${count}.`);
       }, tech.time * 1000);
+    } else {
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${tech.name}.`);
     }
   },
   
@@ -228,6 +249,8 @@ export default DS.Model.extend({
         var count = this.incrementProperty(weapon.storeKey);
         this.get('messages').newTextMessage(`You added a ${weapon.name}. You now have ${count}.`);
       }, weapon.time * 1000);
+    } else {
+      this.get('messages').newTextMessage(`You don't have enough resources to build a ${weapon.name}.`);
     }
   },
   

@@ -33,7 +33,13 @@
       &:hover {
         background-color: darken($lt-grey-green, 10%);
       }
-      
+      &:nth-of-type(1) {
+        position: absolute;
+        left: 0;
+        bottom: 61px;
+        z-index: 300;
+        cursor:pointer;
+      }
       &:nth-of-type(2) {
         position: absolute;
         right: 0;
@@ -41,12 +47,13 @@
         z-index: 300;
         cursor:pointer;
       }
-      &:nth-of-type(1) {
-        position: absolute;
-        left: 0;
-        bottom: 61px;
-        z-index: 300;
-        cursor:pointer;
+      @media screen and (max-width: 1040px) {
+        &:nth-of-type(1) {
+          bottom: 82px;
+        }
+         &:nth-of-type(2) {
+          bottom: 82px;
+        }
       }
     }
     > span.scouting {
@@ -55,7 +62,7 @@
       text-align:center;
       width: 100%;
       position: absolute;
-      top: 3%;
+      top: 20px;
 
       > span {
         font-family: $structure;
@@ -64,6 +71,13 @@
         font-size: 24px;
         text-transform: uppercase;
         margin-top: 10%;
+      }
+
+      @media screen and (min-width: 1600px) {
+        top: 10px;
+      }
+      @media screen and (max-width: 1040px) {
+        top: 10px;
       }
     }
     span.count {
@@ -77,6 +91,10 @@
       width: 100%;
       font-size: 18px;
       text-align: center;
+
+      @media screen and (max-width: 1040px) {
+        bottom: 40%;
+      }
     }
     > button.search-party-action {
       background-color: $red;

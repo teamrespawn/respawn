@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   searchPartySize: 0,
   session: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
+  messages: Ember.inject.service(),
   
   canIncrement: Ember.computed('searchPartySize', 'encampment.availableSurvivors', function() {
     return this.get('searchPartySize') < this.get('encampment.availableSurvivors');
@@ -20,11 +21,15 @@ export default Ember.Component.extend({
     incrementSearchParty: function() {
       if(this.get('canIncrement')) {
         this.incrementProperty('searchPartySize');
+      } else {
+        this.get('messages').newTextMessage("You don't have any more survivors to add.", "error");
       }
     },
     decrementSearchParty: function() {
       if(this.get('canDecrement')) {
         this.decrementProperty('searchPartySize');
+      } else {
+        this.get('messages').newTextMessage("Your search party is already empty.", "error");
       }
     }
   }

@@ -153,9 +153,8 @@ header.navigation {
     color: white;
     text-transform: uppercase;
     text-decoration: none;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    right: 0;
 
     &:hover {
       background-color: darken($red, 5%);
