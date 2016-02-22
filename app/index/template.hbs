@@ -1,1 +1,28 @@
-{{link-to 'Enter game' 'game'}}
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <div class="logo">
+    	{{inline-svg "assets/images/icons/respawn_r_logo" link "#home"}}
+  	</div>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="javascript:void(0)">The Story</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">About</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Play</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section id="home" class="hero">
+	<div class="logo-main">
+    	{{inline-svg "assets/images/icons/respawn_word_logo" }}
+  	</div>
+</section>
+<section id="story" class="story">
+	<h1>The Story</h1>
+	<hr>
+	<p>In a fight for survival, <em>respawn</em> in this massively-multiplayer/real-time strategy/location-aware/cooperative/GIF-powered/post-apocalyptic world.</p>
+</section>
+<section id="play" class="play-game">
+	<span>{{link-to 'Launch Game' 'game'}}</span>
+</section>

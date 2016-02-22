@@ -13,7 +13,8 @@ export default Ember.Service.extend({
     },
     price: {
       metal: 1
-    }
+    },
+    time: 2
   }),
   
   chainsaw: Weapon.create({
@@ -25,7 +26,8 @@ export default Ember.Service.extend({
     },
     price: {
       metal: 1
-    }
+    },
+    time: 2
   }),
   
   pistol: Weapon.create({
@@ -37,7 +39,8 @@ export default Ember.Service.extend({
     },
     price: {
       metal: 1
-    }
+    },
+    time: 2
   }),
   
   shotgun: Weapon.create({
@@ -49,7 +52,8 @@ export default Ember.Service.extend({
     },
     price: {
       metal: 1
-    }
+    },
+    time: 2
   }),
   
   rpg: Weapon.create({
@@ -61,6 +65,7 @@ export default Ember.Service.extend({
     },
     price: {
       metal: 1
-    }
+    },
+    time: 2
   })
 });

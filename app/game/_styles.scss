@@ -8,10 +8,10 @@ a, a:hover, li, li:hover {
   padding:0;
 }
 .logo {
-  padding:6px 10px 10px 6px;
+  //padding:6px 10px 10px 6px;
   position:absolute;
-  top:20px;
-  left:20px;
+  top:14px;
+  left:14px;
   z-index:2;
   //background:darken(#424242, 12%);
   .st0 {
@@ -23,8 +23,8 @@ a, a:hover, li, li:hover {
     }
   }
   svg {
-    width: 59px;
-
+    //width: 59px;
+    width: 81px;
   }
 }
 .game {
