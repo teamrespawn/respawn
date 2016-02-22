@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   classNameBindings: ['searchable:enabled'],
   
   session: Ember.inject.service(),
+  giphy: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   messages: Ember.inject.service(),
   
@@ -18,6 +19,7 @@ export default Ember.Component.extend({
     if(this.get('searchable')) {
       this.get('messages').newTextMessage(`Sending out a search party of ${partySize} survivors...`);
       this.get('encampment').collectResources(partySize);
+      this.get('giphy').newGiphyAction('scout');
       this.sendAction('reset');
     } else {
       this.get('messages').newTextMessage("You haven't assigned any survivors to the search party...", "error");

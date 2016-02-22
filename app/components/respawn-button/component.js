@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: ['disabled'],
   respawnTimer: Ember.inject.service(),
   session: Ember.inject.service(),
+  giphy: Ember.inject.service(),
   encampment: Ember.computed.alias('session.currentEncampment'),
   messages: Ember.inject.service(),
   
@@ -29,6 +30,7 @@ export default Ember.Component.extend({
       Ember.Logger.debug('respawning');
       this.get('encampment').addSurvivor();
       $('li.survivors').addClass('bounce');
+      this.get('giphy').newGiphyAction('respawn');
       setTimeout(function() {
         $('li.survivors').removeClass('bounce');
       }, 2000);
