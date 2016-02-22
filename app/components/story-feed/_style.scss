@@ -12,6 +12,9 @@
   top:0;
   .terminal {
     @include flex(1);
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(flex-end);
     min-height:100px;
     overflow-y:scroll;
     width:96%;
@@ -20,7 +23,6 @@
     color: $red;
   }
   li {
-    flex: 1;
     float:left;
     clear:both;
     margin-bottom:10px;
